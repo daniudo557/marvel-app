@@ -6,17 +6,22 @@ import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
-    <div className='App'>
+    <>
       <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div style={{ display: 'flex', flexDirection: 'row' }}>
+          <img src={logo} className='App-logo' alt='logo' />
+          <p style={{ alignSelf: 'center', maxWidth: 500 }}>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          </p>
+        </div>
         <Link to={paths.comics}>
           Comics
         </Link>
       </header>
-    </div>
+      <section style={{ backgroundColor: 'red', height: 500 }}>
+        Secion
+      </section>
+    </>
   )
 }
 
