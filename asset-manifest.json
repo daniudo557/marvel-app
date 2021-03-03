@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/marvel-app/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/marvel-app/static/js/main.ad4f7236.chunk.js",
-    "main.js.map": "/marvel-app/static/js/main.ad4f7236.chunk.js.map",
-    "runtime-main.js": "/marvel-app/static/js/runtime-main.841f28b5.js",
-    "runtime-main.js.map": "/marvel-app/static/js/runtime-main.841f28b5.js.map",
-    "static/js/2.a49f82e3.chunk.js": "/marvel-app/static/js/2.a49f82e3.chunk.js",
-    "static/js/2.a49f82e3.chunk.js.map": "/marvel-app/static/js/2.a49f82e3.chunk.js.map",
-    "static/js/3.d84d3c09.chunk.js": "/marvel-app/static/js/3.d84d3c09.chunk.js",
-    "static/js/3.d84d3c09.chunk.js.map": "/marvel-app/static/js/3.d84d3c09.chunk.js.map",
+    "main.js": "/marvel-app/static/js/main.b5755ea8.chunk.js",
+    "main.js.map": "/marvel-app/static/js/main.b5755ea8.chunk.js.map",
+    "runtime-main.js": "/marvel-app/static/js/runtime-main.6b5d6415.js",
+    "runtime-main.js.map": "/marvel-app/static/js/runtime-main.6b5d6415.js.map",
+    "static/js/2.28f9e93e.chunk.js": "/marvel-app/static/js/2.28f9e93e.chunk.js",
+    "static/js/2.28f9e93e.chunk.js.map": "/marvel-app/static/js/2.28f9e93e.chunk.js.map",
+    "static/js/3.687ae2c9.chunk.js": "/marvel-app/static/js/3.687ae2c9.chunk.js",
+    "static/js/3.687ae2c9.chunk.js.map": "/marvel-app/static/js/3.687ae2c9.chunk.js.map",
     "index.html": "/marvel-app/index.html",
     "static/css/main.8c8b27cf.chunk.css.map": "/marvel-app/static/css/main.8c8b27cf.chunk.css.map",
-    "static/js/2.a49f82e3.chunk.js.LICENSE.txt": "/marvel-app/static/js/2.a49f82e3.chunk.js.LICENSE.txt",
+    "static/js/2.28f9e93e.chunk.js.LICENSE.txt": "/marvel-app/static/js/2.28f9e93e.chunk.js.LICENSE.txt",
     "static/media/logo.6ce24c58.svg": "/marvel-app/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.841f28b5.js",
-    "static/js/2.a49f82e3.chunk.js",
+    "static/js/runtime-main.6b5d6415.js",
+    "static/js/2.28f9e93e.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.ad4f7236.chunk.js"
+    "static/js/main.b5755ea8.chunk.js"
   ]
 }
