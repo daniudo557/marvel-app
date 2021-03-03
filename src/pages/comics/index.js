@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
 const Comics = () => {
   return (
-    <div className="">
+    <div className=''>
       Comics page
     </div>
-  );
+  )
 }
 
 export default Comics
