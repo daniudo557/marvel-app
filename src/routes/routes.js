@@ -6,7 +6,7 @@ import Comics from '../pages/comics'
 
 export default function Routes() {
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename={process.env.PUBLIC_URL}>
 			<Route path={paths.home} exact component={App} />
 			<Route path={paths.comics} component={Comics} />
 		</BrowserRouter>
