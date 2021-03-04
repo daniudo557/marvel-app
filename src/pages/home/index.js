@@ -12,8 +12,8 @@ const Home = () => {
   return (
     <>
       <header className='App-header'>
-        <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row' }}>
-          <img src={images.header} className='slide-right App-logo' alt='logo' />
+        <div className={isMobile ? 'welcome-section-container-mobile' : 'welcome-section-container'}>
+          <img src={images.header} className='slide-right animated-image' alt='logo' />
           <p className='appear' style={{ alignSelf: 'center', maxWidth: 500 }}>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
           </p>
