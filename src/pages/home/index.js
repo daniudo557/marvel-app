@@ -20,9 +20,11 @@ const Home = () => {
       <header className='App-header'>
         <div className={isMobile ? 'welcome-section-container-mobile' : 'welcome-section-container'}>
           <img src={images.header} className='slide-right animated-image' alt='logo' />
-          <p className='appear' style={{ alignSelf: 'center', maxWidth: 500 }}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          </p>
+          <div style={{ backgroundColor: 'rgba(28, 28, 29, 0.3)' }}>
+            <p className='appear' style={{ alignSelf: 'center', maxWidth: 500 }}>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
+          </div>
         </div>
         <Link to={paths.comics}>
           Comics
