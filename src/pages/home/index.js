@@ -9,8 +9,24 @@ import './styles.css'
 const Home = () => {
   const { width } = useWindowDimensions()
   const isMobile = width <= breakpoints.md
+
+  const renderMobileNavBar = () => (
+    <div className='navBar' style={{ height: 32 }}>
+      <div className='marvelLogoMobile'>
+        <p className='logoText'>M</p>
+      </div>
+    </div>
+  )
+
+  const renderDesktopNavBar = () => (
+    <div className='navBar'>
+      <img src={images.logo} className='marvelLogo' alt='logo' />
+    </div>
+  )
+
   return (
     <>
+      {isMobile ? renderMobileNavBar() : renderDesktopNavBar()}
       <div className='backgroundImgContainer'>
         <div
           className='backgroundImg'
@@ -20,11 +36,11 @@ const Home = () => {
       <header className='App-header'>
         <div className={isMobile ? 'welcome-section-container-mobile' : 'welcome-section-container'}>
           <img src={images.header} className='slide-right animated-image' alt='logo' />
-          <div style={{ backgroundColor: 'rgba(28, 28, 29, 0.3)' }}>
-            <p className='appear' style={{ alignSelf: 'center', maxWidth: 500 }}>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            </p>
-          </div>
+          {/* <div style={{ backgroundColor: 'rgba(28, 28, 29, 0.3)' }}> */}
+          <p className='appear' style={{ alignSelf: 'center', maxWidth: 500 }}>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          </p>
+          {/* </div> */}
         </div>
         <Link to={paths.comics}>
           Comics
