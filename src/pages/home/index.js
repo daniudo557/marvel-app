@@ -11,6 +11,12 @@ const Home = () => {
   const isMobile = width <= breakpoints.md
   return (
     <>
+      <div className='backgroundImgContainer'>
+        <div
+          className='backgroundImg'
+          style={{ backgroundImage: `url(${images.headerBackground})` }}
+        />
+      </div>
       <header className='App-header'>
         <div className={isMobile ? 'welcome-section-container-mobile' : 'welcome-section-container'}>
           <img src={images.header} className='slide-right animated-image' alt='logo' />
