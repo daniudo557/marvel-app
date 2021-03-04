@@ -62,36 +62,6 @@
   pointer-events: none;
 }
 
-.navBar {
-  height: 64px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100000;
-  background-color:#202020;
-  display: flex;
-}
-
-.marvelLogo{
-  pointer-events: none;
-}
-.marvelLogoMobile{
-  background-color:#F0141E;
-  height: 100%;
-  display: flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.logoText {
-  color: white;
-  font-size: 32px;
-  margin-left: 4px;
-  margin-right: 4px;
-  font-family: BetonSans, serif;
-}
-
 .appear {
   animation: appear 1.5s ease-out both;
 	-webkit-animation: appear 1.5s ease-out both;

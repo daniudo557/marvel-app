@@ -2,31 +2,16 @@ import React from 'react'
 import { images, breakpoints } from '../../themes'
 import { Link } from 'react-router-dom'
 
-import paths from '../../routes/paths'
 import { useWindowDimensions } from '../../functions/utils'
+import paths from '../../routes/paths'
 import './styles.css'
 
 const Home = () => {
   const { width } = useWindowDimensions()
   const isMobile = width <= breakpoints.md
 
-  const renderMobileNavBar = () => (
-    <div className='navBar' style={{ height: 32 }}>
-      <div className='marvelLogoMobile'>
-        <p className='logoText'>M</p>
-      </div>
-    </div>
-  )
-
-  const renderDesktopNavBar = () => (
-    <div className='navBar'>
-      <img src={images.logo} className='marvelLogo' alt='logo' />
-    </div>
-  )
-
   return (
     <>
-      {isMobile ? renderMobileNavBar() : renderDesktopNavBar()}
       <div className='backgroundImgContainer'>
         <div
           className='backgroundImg'
