@@ -1,0 +1,81 @@
+
+.navBar {
+  height: 64px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100000;
+  background-color:#202020;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &-mobile {
+    height: 48px;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.marvelLogo{
+  height: 100%;
+  background-color:#F0141E;
+
+  &-mobile {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+  }
+}
+
+.burgerButton {
+  display: block;
+  align-self: center;
+  cursor: pointer;
+}
+
+.burgerButtonContainer {
+  display: flex;
+  justify-content:flex-end;
+  height: 32px;
+}
+
+.sideBarMenu {
+  background-color:#353434;
+  justify-content: flex-start;
+  width: 128px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.menuItem {
+  display: inline-block;
+  padding-right: 16px;
+  padding-left: 16px;
+
+  &::after {
+    content: '';
+    width: 0px;
+    height: 2px;
+    display: block;
+    background: #fff;
+    transition: 300ms;
+  }
+  &:hover {
+    color:#F0141E;
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+.marvelDefaultText {
+  color: white;
+  font-family: BetonSans, sans-serif;
+  font-size: 32px;
+  text-decoration: none;
+  align-self: center;
+  text-transform: uppercase;
+}
