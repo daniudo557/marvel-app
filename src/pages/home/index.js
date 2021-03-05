@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import { images, breakpoints } from '../../themes'
 import { useWindowDimensions } from '../../functions/utils'
+import CustomCarousel from '../../components/customCarouselMulti'
 import API from '../../services/api'
 import './styles.scss'
 
@@ -80,24 +81,7 @@ const Home = () => {
         </div>
       </section>
       <section style={{ display: 'flex', flexDirection: 'column' }}>
-        {comics.map((item, index) => (
-          <img
-            style={{ width: 500, height: 500 }}
-            key={index}
-            alt='comics'
-            src={item.thumbnail.path + '.' + item.thumbnail.extension}
-          />
-
-        ))}
-        {characters.map((item, index) => (
-          <img
-            style={{ width: 500, height: 500 }}
-            key={index}
-            alt='characters'
-            src={item.thumbnail.path + '.' + item.thumbnail.extension}
-          />
-
-        ))}
+        <CustomCarousel isMobile={isTablet} items={comics} />
       </section>
     </>
   )
