@@ -80,9 +80,10 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section style={{ display: 'flex', flexDirection: 'column' }}>
+      <section style={{ paddingTop: 256, backgroundColor: '#F5F5F5', display: 'flex', flexDirection: 'column' }}>
         <CustomCarousel isMobile={isTablet} items={comics} />
       </section>
+      <section style={{ height: 500 }} />
     </>
   )
 }

@@ -1,7 +1,17 @@
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 
+import { useWindowDimensions } from '../../functions/utils'
+import { breakpoints } from '../../themes'
+import './styles.scss'
+
 const CustomCarousel = ({ items }) => {
+  const { width } = useWindowDimensions()
+
+  // const isDesktop = width > breakpoints.md
+  // const isTablet = width > breakpoints.sm && width <= breakpoints.md
+  const isMobile = width <= breakpoints.sm
+
   const preventDragHandler = (e) => {
     e.preventDefault()
   }
@@ -27,25 +37,33 @@ const CustomCarousel = ({ items }) => {
         desktop: {
           breakpoint: {
             max: 3000,
-            min: 1024
+            min: breakpoints.xl
+          },
+          items: 5,
+          partialVisibilityGutter: 0
+        },
+        desktop2: {
+          breakpoint: {
+            max: breakpoints.xl,
+            min: breakpoints.lg
           },
           items: 3,
-          partialVisibilityGutter: 40
-        },
-        mobile: {
-          breakpoint: {
-            max: 464,
-            min: 0
-          },
-          items: 1,
           partialVisibilityGutter: 30
         },
         tablet: {
           breakpoint: {
-            max: 1024,
-            min: 464
+            max: breakpoints.lg,
+            min: breakpoints.md
           },
           items: 2,
+          partialVisibilityGutter: 30
+        },
+        mobile: {
+          breakpoint: {
+            max: breakpoints.md,
+            min: 0
+          },
+          items: 1,
           partialVisibilityGutter: 30
         }
       }}
@@ -55,13 +73,28 @@ const CustomCarousel = ({ items }) => {
       swipeable
     >
       {items.map((item, index) => (
-        <div key={index} onClick={() => console.log(item.id)}>
-          <img
-            style={{ width: '100%', height: '100%' }}
-            onDragStart={preventDragHandler}
-            alt='comics'
-            src={item.thumbnail.path + '.' + item.thumbnail.extension}
-          />
+        <div className={isMobile ? 'carouselItemContainerMobile' : 'carouselItemContainer'} key={index}>
+          <div id='arrow' className='carouselItem' onClick={() => console.log(item.id)}>
+            <img
+              className='carouselImage'
+              onDragStart={preventDragHandler}
+              alt='comics'
+              src={item.thumbnail.path + '.' + item.thumbnail.extension}
+            />
+            <div className='itemFooter'>
+              <div className='comicTitle'>
+                {item.title}
+              </div>
+              <div className='itemFooterButtons'>
+                <div className='button'>
+                  Adicionar a lista
+                </div>
+                <div className='button'>
+                  Detalhes
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       ))}
     </Carousel>
