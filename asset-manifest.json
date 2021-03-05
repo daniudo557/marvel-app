@@ -1,23 +1,26 @@
 {
   "files": {
-    "main.css": "/marvel-app/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/marvel-app/static/js/main.b5755ea8.chunk.js",
-    "main.js.map": "/marvel-app/static/js/main.b5755ea8.chunk.js.map",
-    "runtime-main.js": "/marvel-app/static/js/runtime-main.6b5d6415.js",
-    "runtime-main.js.map": "/marvel-app/static/js/runtime-main.6b5d6415.js.map",
-    "static/js/2.28f9e93e.chunk.js": "/marvel-app/static/js/2.28f9e93e.chunk.js",
-    "static/js/2.28f9e93e.chunk.js.map": "/marvel-app/static/js/2.28f9e93e.chunk.js.map",
-    "static/js/3.687ae2c9.chunk.js": "/marvel-app/static/js/3.687ae2c9.chunk.js",
-    "static/js/3.687ae2c9.chunk.js.map": "/marvel-app/static/js/3.687ae2c9.chunk.js.map",
+    "main.css": "/marvel-app/static/css/main.d4e1a873.chunk.css",
+    "main.js": "/marvel-app/static/js/main.043ea683.chunk.js",
+    "main.js.map": "/marvel-app/static/js/main.043ea683.chunk.js.map",
+    "runtime-main.js": "/marvel-app/static/js/runtime-main.2e1dbc87.js",
+    "runtime-main.js.map": "/marvel-app/static/js/runtime-main.2e1dbc87.js.map",
+    "static/js/2.bfb70cc5.chunk.js": "/marvel-app/static/js/2.bfb70cc5.chunk.js",
+    "static/js/2.bfb70cc5.chunk.js.map": "/marvel-app/static/js/2.bfb70cc5.chunk.js.map",
+    "static/js/3.6ecb513c.chunk.js": "/marvel-app/static/js/3.6ecb513c.chunk.js",
+    "static/js/3.6ecb513c.chunk.js.map": "/marvel-app/static/js/3.6ecb513c.chunk.js.map",
     "index.html": "/marvel-app/index.html",
-    "static/css/main.8c8b27cf.chunk.css.map": "/marvel-app/static/css/main.8c8b27cf.chunk.css.map",
-    "static/js/2.28f9e93e.chunk.js.LICENSE.txt": "/marvel-app/static/js/2.28f9e93e.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/marvel-app/static/media/logo.6ce24c58.svg"
+    "static/css/main.d4e1a873.chunk.css.map": "/marvel-app/static/css/main.d4e1a873.chunk.css.map",
+    "static/js/2.bfb70cc5.chunk.js.LICENSE.txt": "/marvel-app/static/js/2.bfb70cc5.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/marvel-app/static/media/BentonSans-Comp-Black-Regular.697ae783.otf",
+    "static/media/marvel-logo.png": "/marvel-app/static/media/marvel-logo.568d8c62.png",
+    "static/media/miles-morales.png": "/marvel-app/static/media/miles-morales.c51f6de4.png",
+    "static/media/ny.jpg": "/marvel-app/static/media/ny.d8dfa83b.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.6b5d6415.js",
-    "static/js/2.28f9e93e.chunk.js",
-    "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.b5755ea8.chunk.js"
+    "static/js/runtime-main.2e1dbc87.js",
+    "static/js/2.bfb70cc5.chunk.js",
+    "static/css/main.d4e1a873.chunk.css",
+    "static/js/main.043ea683.chunk.js"
   ]
 }
