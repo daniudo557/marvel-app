@@ -11,14 +11,24 @@ const Home = () => {
   const isTablet = width > breakpoints.sm && width <= breakpoints.md
   const isMobile = width <= breakpoints.sm
 
-  const animatedImageDesktopClass = 'slide-right animatedImage'
-  const animatedImageTabletClass = 'slide-right animatedImage-tablet'
-  const animatedImageMobileClass = 'slide-right animatedImage-mobile'
+  const welcomeSectionContainerDesktopClass = 'welcomeSectionContainer'
+  const welcomeSectionContainerTabletClass = 'welcomeSectionContainer-tablet'
+  const welcomeSectionContainerMobileClass = 'welcomeSectionContainer-mobile'
 
-  const getAnimatedImageClass = () => {
-    if (isDesktop) return animatedImageDesktopClass
-    else if (isTablet) return animatedImageTabletClass
-    else if (isMobile) return animatedImageMobileClass
+  const getwelcomeSectionContainerClass = () => {
+    if (isDesktop) return welcomeSectionContainerDesktopClass
+    else if (isTablet) return welcomeSectionContainerTabletClass
+    else if (isMobile) return welcomeSectionContainerMobileClass
+  }
+
+  const welcomeSectionTxtDesktopClass = 'welcomeSectionTxt'
+  const welcomeSectionTxtTabletClass = 'welcomeSectionTxt-tablet'
+  const welcomeSectionTxtMobileClass = 'welcomeSectionTxt-mobile'
+
+  const getWelcomeSectionTxtClass = () => {
+    if (isDesktop) return welcomeSectionTxtDesktopClass
+    else if (isTablet) return welcomeSectionTxtTabletClass
+    else if (isMobile) return welcomeSectionTxtMobileClass
   }
 
   return (
@@ -30,20 +40,19 @@ const Home = () => {
         />
       </div>
       <section className='welcomeSection'>
-        <div
-          className={isDesktop
-            ? 'welcomeSectionContainer'
-            : 'welcomeSectionContainer-mobile'}
-        >
+        <div className={getwelcomeSectionContainerClass()}>
           <img
             src={images.header}
-            className={getAnimatedImageClass()}
             alt='logo'
+            className={`animatedImgSlideRight 
+            ${isDesktop ? 'animatedImg' : 'animatedImg-tablet'}`}
           />
-          <p className='appear' style={{ alignSelf: 'center', maxWidth: 500 }}>
+          <div
+            className={`welcomeSectionTxtAppear ${getWelcomeSectionTxtClass()}`}
+          >
             Lorem Ipsum is simply dummy text of
             the printing and typesetting industry.
-          </p>
+          </div>
         </div>
       </section>
       <section style={{ backgroundColor: 'red', height: '90vh', width: '100%' }}>
