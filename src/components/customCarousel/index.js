@@ -3,6 +3,7 @@ import 'react-multi-carousel/lib/styles.css'
 
 import { useWindowDimensions } from '../../functions/utils'
 import { breakpoints } from '../../themes'
+import Button from '../button'
 import './styles.scss'
 
 const CustomCarousel = ({ items }) => {
@@ -92,12 +93,14 @@ const CustomCarousel = ({ items }) => {
                 {item.title}
               </div>
               <div className='itemFooterButtons'>
-                <div className='button'>
-                  Adicionar a lista
-                </div>
-                <div className='button'>
-                  Detalhes
-                </div>
+                <Button
+                  text='Adicionar a lista'
+                  onClick={() => console.log('added to list')}
+                />
+                <Button
+                  text='Detalhes'
+                  onClick={() => console.log('details')}
+                />
               </div>
             </div>
           </div>
