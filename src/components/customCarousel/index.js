@@ -9,7 +9,7 @@ const CustomCarousel = ({ items }) => {
   const { width } = useWindowDimensions()
 
   // const isDesktop = width > breakpoints.md
-  // const isTablet = width > breakpoints.sm && width <= breakpoints.md
+  const isTablet = width > breakpoints.sm && width <= breakpoints.md
   const isMobile = width <= breakpoints.sm
 
   const preventDragHandler = (e) => {
@@ -73,8 +73,14 @@ const CustomCarousel = ({ items }) => {
       swipeable
     >
       {items.map((item, index) => (
-        <div className={isMobile ? 'carouselItemContainerMobile' : 'carouselItemContainer'} key={index}>
-          <div id='arrow' className='carouselItem' onClick={() => console.log(item.id)}>
+        <div
+          key={index}
+          className={`carouselItemContainer 
+          ${isMobile
+            ? 'carouselItemContainer-mobile'
+            : 'carouselItemContainer-tablet'}`}
+        >
+          <div id='arrow' className={`carouselItem ${isTablet ? 'carouselItem-tablet' : ''}`} onClick={() => console.log(item.id)}>
             <img
               className='carouselImage'
               onDragStart={preventDragHandler}
