@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import { images, breakpoints } from '../../themes'
 import { useWindowDimensions } from '../../functions/utils'
-import CustomCarousel from '../../components/customCarouselMulti'
+import CustomCarousel from '../../components/customCarousel'
 import API from '../../services/api'
 import './styles.scss'
 
