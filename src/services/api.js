@@ -4,7 +4,7 @@ const apiKey = `apikey=${process.env.REACT_APP_API_KEY}`
 const hash = `hash=${process.env.REACT_APP_HASH}`
 const secret = `ts=1&${apiKey}&${hash}`
 
-const baseURL = 'http://gateway.marvel.com/v1/public'
+const baseURL = 'https://gateway.marvel.com/v1/public'
 
 const api = axios.create({ baseURL })
 
