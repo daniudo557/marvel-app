@@ -1,11 +1,35 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { images, breakpoints } from '../../themes'
 import { useWindowDimensions } from '../../functions/utils'
+import API from '../../services/api'
 import './styles.scss'
 
 const Home = () => {
   const { width } = useWindowDimensions()
+  const [comics, setComics] = useState([])
+  const [characters, setCharacters] = useState([])
+
+  useEffect(() => {
+    API.getComics().then(({ data }) => {
+      setComics(data.data.results)
+    })
+  }, [])
+
+  useEffect(() => {
+    API.getCharacters().then(({ data }) => {
+      setCharacters(data.data.results)
+    })
+  }, [])
+
+  useEffect(() => {
+    API.getCharacters2().then(({ data }) => {
+      console.log(data)
+    })
+  }, [])
+
+  console.log(comics)
+  console.log(characters)
 
   const isDesktop = width > breakpoints.md
   const isTablet = width > breakpoints.sm && width <= breakpoints.md
@@ -55,8 +79,25 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section style={{ backgroundColor: 'red', height: '90vh', width: '100%' }}>
-        Secion
+      <section style={{ display: 'flex', flexDirection: 'column' }}>
+        {comics.map((item, index) => (
+          <img
+            style={{ width: 500, height: 500 }}
+            key={index}
+            alt='comics'
+            src={item.thumbnail.path + '.' + item.thumbnail.extension}
+          />
+
+        ))}
+        {characters.map((item, index) => (
+          <img
+            style={{ width: 500, height: 500 }}
+            key={index}
+            alt='characters'
+            src={item.thumbnail.path + '.' + item.thumbnail.extension}
+          />
+
+        ))}
       </section>
     </>
   )
