@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { images, breakpoints } from '../../themes'
 import { useWindowDimensions } from '../../functions/utils'
 import CustomCarousel from '../../components/customCarousel'
+import Section from '../../components/section'
 import API from '../../services/api'
 import './styles.scss'
 
@@ -80,9 +81,13 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section style={{ paddingTop: 256, backgroundColor: '#F5F5F5', display: 'flex', flexDirection: 'column' }}>
+      <Section
+        id='comics'
+        customStyles={{ backgroundColor: '#F5F5F5' }}
+        title='Procure o seu quadrinho preferido!'
+      >
         <CustomCarousel isMobile={isTablet} items={comics} />
-      </section>
+      </Section>
       <section style={{ height: 500 }} />
     </>
   )
