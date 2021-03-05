@@ -1,5 +1,6 @@
 const Paths = {
   home: '/',
+  homeComicsHash: '/#comics',
   comics: '/comics'
 }
 

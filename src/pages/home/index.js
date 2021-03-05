@@ -65,7 +65,7 @@ const Home = () => {
           style={{ backgroundImage: `url(${images.headerBackground})` }}
         />
       </div>
-      <section className='welcomeSection'>
+      <section id='#' className='welcomeSection'>
         <div className={getwelcomeSectionContainerClass()}>
           <img
             src={images.header}

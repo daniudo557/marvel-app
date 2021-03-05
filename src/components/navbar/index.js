@@ -11,7 +11,7 @@ const Navbar = () => {
   const { width } = useWindowDimensions()
   const isMobile = width <= breakpoints.md
   const menuItems = [
-    { text: 'Quadrinhos', path: paths.home },
+    { text: 'Quadrinhos', path: paths.homeComicsHash },
     { text: 'Personagens', path: paths.comics },
     { text: 'Minha lista', path: paths.home }
   ]
@@ -41,13 +41,22 @@ const Navbar = () => {
       </Link>
       <div className='menuLine'>
         {menuItems.map((item, index) => (
-          <Link
-            to={item.path}
+          // <Link
+          //   to={item.path}
+          //   href={item.path}
+          //   className='marvelDefaultText menuItem'
+          //   key={index}
+          // >
+          //   {item.text}
+          // </Link>
+          <a
+            href={item.path}
+            style={{ scrollBehavior: 'smooth' }}
             className='marvelDefaultText menuItem'
             key={index}
           >
             {item.text}
-          </Link>
+          </a>
         ))}
 
       </div>
