@@ -42,22 +42,14 @@ const Navbar = () => {
       </Link>
       <div className='menuLine'>
         {menuItems.map((item, index) => (
-          // <Link
-          //   to={item.path}
-          //   href={item.path}
-          //   className='marvelDefaultText menuItem'
-          //   key={index}
-          // >
-          //   {item.text}
-          // </Link>
-          <a
+          <Link
+            to={item.path}
             href={item.path}
-            style={{ scrollBehavior: 'smooth' }}
             className='marvelDefaultText menuItem'
             key={index}
           >
             {item.text}
-          </a>
+          </Link>
         ))}
 
       </div>
