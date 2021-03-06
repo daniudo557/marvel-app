@@ -20,14 +20,17 @@ const Home = () => {
   const { isDesktop, isTablet, isMobile } = getBreakpoints(width)
 
   const [comicsResponse, setComicsResponse] = useState([])
+  const [isLoading, setLoading] = useState(false)
   // const [characters, setCharacters] = useState([])
 
   // TODO: Remove this variable
   const comics = useSelector(selectors.getComics)
 
   useEffect(() => {
+    setLoading(true)
     API.getComics().then(({ data }) => {
       setComicsResponse(data.data.results)
+      setLoading(false)
     })
   }, [])
 
@@ -103,7 +106,7 @@ const Home = () => {
         customStyles={{ backgroundColor: '#F5F5F5' }}
         title='Procure o seu quadrinho preferido!'
       >
-        {comicsResponse.length === 20 ? renderCarousel() : renderLoading()}
+        {isLoading ? renderLoading() : renderCarousel()}
       </Section>
       <section style={{ height: 500 }}>
         {comics.map((comic, index) => (
