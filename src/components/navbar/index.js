@@ -44,7 +44,6 @@ const Navbar = () => {
         {menuItems.map((item, index) => (
           <Link
             to={item.path}
-            href={item.path}
             className='marvelDefaultText menuItem'
             key={index}
           >
