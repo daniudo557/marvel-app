@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
-import { images, breakpoints } from '../../themes'
-import { useWindowDimensions } from '../../functions/utils'
+import { images } from '../../themes'
+import { getBreakpoints, useWindowDimensions } from '../../functions/utils'
 
 import API from '../../services/api'
 import './styles.scss'
@@ -12,6 +12,8 @@ import CarouselItem from '../../components/carouselItem'
 
 const Home = () => {
   const { width } = useWindowDimensions()
+  const { isDesktop, isTablet, isMobile } = getBreakpoints(width)
+
   const [comics, setComics] = useState([])
   const [characters, setCharacters] = useState([])
 
@@ -33,6 +35,9 @@ const Home = () => {
     })
   }, [])
 
+  console.log(comics)
+  console.log(characters)
+
   const renderCarousel = () => (
     <CustomCarousel isMobile={isTablet}>
       {comics.map((comic, index) => (
@@ -48,31 +53,16 @@ const Home = () => {
     <div style={{ width: 300, height: 500 }}>loading</div>
   )
 
-  console.log(comics)
-  console.log(characters)
-
-  const isDesktop = width > breakpoints.md
-  const isTablet = width > breakpoints.sm && width <= breakpoints.md
-  const isMobile = width <= breakpoints.sm
-
-  const welcomeSectionContainerDesktopClass = 'welcomeSectionContainer'
-  const welcomeSectionContainerTabletClass = 'welcomeSectionContainer-tablet'
-  const welcomeSectionContainerMobileClass = 'welcomeSectionContainer-mobile'
-
   const getwelcomeSectionContainerClass = () => {
-    if (isDesktop) return welcomeSectionContainerDesktopClass
-    else if (isTablet) return welcomeSectionContainerTabletClass
-    else if (isMobile) return welcomeSectionContainerMobileClass
+    if (isDesktop) return 'welcomeSectionContainer'
+    else if (isTablet) return 'welcomeSectionContainer-tablet'
+    else if (isMobile) return 'welcomeSectionContainer-mobile'
   }
 
-  const welcomeSectionTxtDesktopClass = 'welcomeSectionTxt'
-  const welcomeSectionTxtTabletClass = 'welcomeSectionTxt-tablet'
-  const welcomeSectionTxtMobileClass = 'welcomeSectionTxt-mobile'
-
   const getWelcomeSectionTxtClass = () => {
-    if (isDesktop) return welcomeSectionTxtDesktopClass
-    else if (isTablet) return welcomeSectionTxtTabletClass
-    else if (isMobile) return welcomeSectionTxtMobileClass
+    if (isDesktop) return 'welcomeSectionTxt'
+    else if (isTablet) return 'welcomeSectionTxt-tablet'
+    else if (isMobile) return 'welcomeSectionTxt-mobile'
   }
 
   return (

@@ -1,15 +1,11 @@
 import Button from '../button'
 import './styles.scss'
 
-import { useWindowDimensions } from '../../functions/utils'
-import { breakpoints } from '../../themes'
+import { useWindowDimensions, getBreakpoints } from '../../functions/utils'
 
 const CarouselItem = ({ item }) => {
   const { width } = useWindowDimensions()
-
-  // const isDesktop = width > breakpoints.md
-  const isTablet = width > breakpoints.sm && width <= breakpoints.md
-  const isMobile = width <= breakpoints.sm
+  const { isTablet, isMobile } = getBreakpoints(width)
 
   const preventDragHandler = (e) => {
     e.preventDefault()
@@ -22,7 +18,11 @@ const CarouselItem = ({ item }) => {
           ? 'carouselItemContainer-mobile'
           : 'carouselItemContainer-tablet'}`}
     >
-      <div id='arrow' className={`carouselItem ${isTablet ? 'carouselItem-tablet' : ''}`} onClick={() => console.log(item.id)}>
+      <div
+        id='arrow'
+        className={`carouselItem ${isTablet && 'carouselItem-tablet'}`}
+        onClick={() => console.log(item.id)}
+      >
         <img
           className='carouselImage'
           onDragStart={preventDragHandler}

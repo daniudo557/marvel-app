@@ -1,15 +1,16 @@
 import React from 'react'
-import { images, breakpoints } from '../../themes'
+import { images } from '../../themes'
 import { Link } from 'react-router-dom'
 
 import paths from '../../routes/paths'
-import { useWindowDimensions } from '../../functions/utils'
+import { useWindowDimensions, getBreakpoints } from '../../functions/utils'
 import BurguerMenu from './burguerMenu'
 import './styles.scss'
 
 const Navbar = () => {
   const { width } = useWindowDimensions()
-  const isMobile = width <= breakpoints.md
+  const { isMobile } = getBreakpoints(width)
+
   const menuItems = [
     { text: 'Quadrinhos', path: paths.homeComicsHash },
     { text: 'Personagens', path: paths.comics },
