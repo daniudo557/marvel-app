@@ -1,6 +1,8 @@
 const Paths = {
   home: '/',
-  comics: '/comics'
+  characters: '/characters',
+  comics: '/comics/:id',
+  list: '/list'
 }
 
 export default Paths

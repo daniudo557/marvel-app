@@ -1,12 +1,14 @@
 import React from 'react'
 import Banner from '../../components/banner'
 
-const Comics = (props) => {
+const Characters = (props) => {
   const { params } = props.match
   console.log(params)
   return (
-    <Banner />
+    <div className=''>
+      <Banner />
+    </div>
   )
 }
 
-export default Comics
+export default Characters

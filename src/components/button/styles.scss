@@ -1,0 +1,10 @@
+.buttonContainer {
+  color: white;
+  background-color: #F0141E;
+  height: 32px;
+  width: 100%;
+  
+  &:hover {
+    background-color: #c8131c;
+  }
+}

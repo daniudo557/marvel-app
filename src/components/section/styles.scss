@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  color: black;
+  font-family: BetonSans, sans-serif;
+  font-size: calc(15px + 2vmin);
+  text-decoration: none;
+  text-transform: uppercase;
+}
