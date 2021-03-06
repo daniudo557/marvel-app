@@ -3,6 +3,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { actions } from '../../actions/counter'
+import { selectors } from '../../selectors/counter'
 
 import { useWindowDimensions, getBreakpoints } from '../../functions/utils'
 import Button from '../button'
@@ -12,7 +13,7 @@ const CarouselItem = ({ item }) => {
   const { width } = useWindowDimensions()
   const { isTablet, isMobile } = getBreakpoints(width)
 
-  const counter = useSelector(state => state.counterReducers.counter)
+  const counter = useSelector(selectors.getCounter)
   const dispatch = useDispatch()
 
   const handleDecrement = () => dispatch(actions.decrement())
