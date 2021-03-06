@@ -1,9 +1,14 @@
+import React from 'react'
+
+import { connect } from 'react-redux'
+
+import { actions } from '../../actions/counter'
+
+import { useWindowDimensions, getBreakpoints } from '../../functions/utils'
 import Button from '../button'
 import './styles.scss'
 
-import { useWindowDimensions, getBreakpoints } from '../../functions/utils'
-
-const CarouselItem = ({ item }) => {
+const CarouselItem = ({ item, counter, decrement, increment }) => {
   const { width } = useWindowDimensions()
   const { isTablet, isMobile } = getBreakpoints(width)
 
@@ -32,15 +37,16 @@ const CarouselItem = ({ item }) => {
         <div className='itemFooter'>
           <div className='comicTitle'>
             {item.title}
+            {counter}
           </div>
           <div className='itemFooterButtons'>
             <Button
               text='Adicionar a lista'
-              onClick={() => console.log('added to list')}
+              onClick={decrement}
             />
             <Button
               text='Detalhes'
-              onClick={() => console.log('details')}
+              onClick={increment}
             />
           </div>
         </div>
@@ -49,4 +55,13 @@ const CarouselItem = ({ item }) => {
   )
 }
 
-export default CarouselItem
+const mapStateToProps = state => ({
+  counter: state.counterReducers.counter
+})
+
+const mapDispatchToProps = dispatch => ({
+  decrement: () => dispatch(actions.decrement()),
+  increment: () => dispatch(actions.increment())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(CarouselItem)
