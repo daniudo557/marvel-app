@@ -7,27 +7,32 @@ import './styles.scss'
 const BurguerMenu = ({ items }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
+  const renderHashLink = item => (
+    <a
+      href={item.path}
+      className='marvelDefaultText menuItem'
+      style={{ fontSize: 22, padding: '8px 0px 8px 0px' }}
+      onClick={() => setSidebarOpen(false)}
+    >
+      {item.text}
+    </a>
+  )
+  const renderPageLink = item => (
+    <Link
+      to={item.path}
+      className='marvelDefaultText menuItem'
+      style={{ fontSize: 22, padding: '8px 0px 8px 0px' }}
+      onClick={() => setSidebarOpen(false)}
+    >
+      {item.text}
+    </Link>
+  )
+
   const renderBurguerItems = () => (
-    items.map((item, index) => (
+    items.map(item => (
       item.path === paths.homeComicsHash
-        ? <a
-            key={index}
-            href={item.path}
-            className='marvelDefaultText menuItem'
-            style={{ fontSize: 22, padding: '8px 0px 8px 0px' }}
-            onClick={() => setSidebarOpen(false)}
-          >
-          {item.text}
-        </a>
-        : <Link
-            key={index}
-            to={item.path}
-            className='marvelDefaultText menuItem'
-            style={{ fontSize: 22, padding: '8px 0px 8px 0px' }}
-            onClick={() => setSidebarOpen(false)}
-          >
-          {item.text}
-          </Link>
+        ? renderHashLink(item)
+        : renderPageLink(item)
     ))
   )
 

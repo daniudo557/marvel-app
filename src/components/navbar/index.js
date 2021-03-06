@@ -17,6 +17,23 @@ const Navbar = () => {
     { text: 'Minha lista', path: paths.home }
   ]
 
+  const renderHashLink = item => (
+    <a
+      href={item.path}
+      className='marvelDefaultText menuItem'
+    >
+      {item.text}
+    </a>
+  )
+  const renderPageLink = item => (
+    <Link
+      to={item.path}
+      className='marvelDefaultText menuItem'
+    >
+      {item.text}
+    </Link>
+  )
+
   const renderMobileNavBar = () => (
     <div className='navBar navBar-mobile'>
       <div className='marvelLogo marvelLogo-mobile'>
@@ -41,22 +58,10 @@ const Navbar = () => {
         <img src={images.logo} className='marvelLogo' alt='logo' />
       </Link>
       <div className='menuLine'>
-        {menuItems.map((item, index) => (
+        {menuItems.map(item => (
           item.path === paths.homeComicsHash
-            ? <a
-                href={item.path}
-                className='marvelDefaultText menuItem'
-                key={index}
-              >
-              {item.text}
-            </a>
-            : <Link
-                to={item.path}
-                className='marvelDefaultText menuItem'
-                key={index}
-              >
-              {item.text}
-            </Link>
+            ? renderHashLink(item)
+            : renderPageLink(item)
         ))}
 
       </div>

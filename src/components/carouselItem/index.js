@@ -1,12 +1,10 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { removeFromList, addToList } from '../../redux/actions/comics'
-import { selectors } from '../../redux/selectors/comics'
 
-import paths from '../../routes/paths'
 import { useWindowDimensions, getBreakpoints } from '../../functions/utils'
 import Button from '../button'
 import './styles.scss'
@@ -15,7 +13,6 @@ const CarouselItem = ({ item }) => {
   const { width } = useWindowDimensions()
   const { isTablet, isMobile } = getBreakpoints(width)
 
-  // const comics = useSelector(selectors.getComics)
   const dispatch = useDispatch()
 
   const removeComicFromList = (comic) => dispatch(removeFromList(comic))
