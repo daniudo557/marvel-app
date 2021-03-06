@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { actions } from '../../actions/counter'
 
@@ -8,9 +8,15 @@ import { useWindowDimensions, getBreakpoints } from '../../functions/utils'
 import Button from '../button'
 import './styles.scss'
 
-const CarouselItem = ({ item, counter, decrement, increment }) => {
+const CarouselItem = ({ item }) => {
   const { width } = useWindowDimensions()
   const { isTablet, isMobile } = getBreakpoints(width)
+
+  const counter = useSelector(state => state.counterReducers.counter)
+  const dispatch = useDispatch()
+
+  const handleDecrement = () => dispatch(actions.decrement())
+  const handleIncrement = () => dispatch(actions.increment())
 
   const preventDragHandler = (e) => {
     e.preventDefault()
@@ -42,11 +48,11 @@ const CarouselItem = ({ item, counter, decrement, increment }) => {
           <div className='itemFooterButtons'>
             <Button
               text='Adicionar a lista'
-              onClick={decrement}
+              onClick={handleDecrement}
             />
             <Button
               text='Detalhes'
-              onClick={increment}
+              onClick={handleIncrement}
             />
           </div>
         </div>
@@ -55,13 +61,4 @@ const CarouselItem = ({ item, counter, decrement, increment }) => {
   )
 }
 
-const mapStateToProps = state => ({
-  counter: state.counterReducers.counter
-})
-
-const mapDispatchToProps = dispatch => ({
-  decrement: () => dispatch(actions.decrement()),
-  increment: () => dispatch(actions.increment())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(CarouselItem)
+export default CarouselItem
