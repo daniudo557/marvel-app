@@ -16,7 +16,7 @@ const CarouselItem = ({ item }) => {
   // const comics = useSelector(selectors.getComics)
   const dispatch = useDispatch()
 
-  const handleDecrement = () => dispatch(removeFromList())
+  const handleDecrement = (comic) => dispatch(removeFromList(comic))
   const handleIncrement = (comic) => dispatch(addToList(comic))
 
   const preventDragHandler = (e) => {
@@ -48,7 +48,7 @@ const CarouselItem = ({ item }) => {
           <div className='itemFooterButtons'>
             <Button
               text='Adicionar a lista'
-              onClick={handleDecrement}
+              onClick={() => handleDecrement(item)}
             />
             <Button
               text='Detalhes'

@@ -5,6 +5,7 @@ export const addToList = (value) => ({
   newValue: value
 })
 
-export const removeFromList = () => ({
-  type: actionsTypes.REMOVE_COMIC_FROM_LIST
+export const removeFromList = (value) => ({
+  type: actionsTypes.REMOVE_COMIC_FROM_LIST,
+  newValue: value
 })
