@@ -35,12 +35,50 @@
   }
 }
 
+
+
 .carouselImage {
   display: flex;
-  height: 70%;
+  height: 100%;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+
+  &Container {
+    display: flex;
+    overflow: hidden;
+
+    height: 70%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      .carouselImage{
+        filter: blur(5px);
+        transform: scale(1.1);
+      }
+      #seeMore{
+        opacity: 1;
+      }
+    } 
+  }
+}
+#seeMore{
+  opacity: 0;
+  transition: all 0.5s;
+  z-index: 100;
+  align-self: center;
+  position: fixed;
+
+  color: #F0141E;
+  font-family: BetonSans, sans-serif;
+  font-size: 32px;
+  text-decoration: none;
+  align-self: center;
+  text-transform: uppercase;
 }
 
 .itemFooter {
@@ -57,4 +95,12 @@
 }
 #arrow:hover {
   top: -10px;
+}
+
+.comicTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; 
+  -webkit-box-orient: vertical;
 }

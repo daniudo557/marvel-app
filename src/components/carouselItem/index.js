@@ -1,10 +1,12 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { removeFromList, addToList } from '../../redux/actions/comics'
 import { selectors } from '../../redux/selectors/comics'
 
+import paths from '../../routes/paths'
 import { useWindowDimensions, getBreakpoints } from '../../functions/utils'
 import Button from '../button'
 import './styles.scss'
@@ -35,12 +37,18 @@ const CarouselItem = ({ item }) => {
         className={`carouselItem ${isTablet && 'carouselItem-tablet'}`}
         onClick={() => console.log(item.id)}
       >
-        <img
-          className='carouselImage'
-          onDragStart={preventDragHandler}
-          alt={item.title}
-          src={item.thumbnail.path + '.' + item.thumbnail.extension}
-        />
+        <Link
+          className='carouselImageContainer'
+          to={`${paths.comics}?${item.id}`}
+        >
+          <h2 id='seeMore'>VER MAIS</h2>
+          <img
+            className='carouselImage'
+            onDragStart={preventDragHandler}
+            alt={item.title}
+            src={item.thumbnail.path + '.' + item.thumbnail.extension}
+          />
+        </Link>
         <div className='itemFooter'>
           <div className='comicTitle'>
             {item.title}
