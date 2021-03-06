@@ -10,37 +10,45 @@ import Section from '../../components/section'
 import CustomCarousel from '../../components/customCarousel'
 import CarouselItem from '../../components/carouselItem'
 
+// TODO: Remove this import
+import { useSelector } from 'react-redux'
+import { selectors } from '../../redux/selectors/comics'
+//
+
 const Home = () => {
   const { width } = useWindowDimensions()
   const { isDesktop, isTablet, isMobile } = getBreakpoints(width)
 
-  const [comics, setComics] = useState([])
-  const [characters, setCharacters] = useState([])
+  const [comicsResponse, setComicsResponse] = useState([])
+  // const [characters, setCharacters] = useState([])
+
+  // TODO: Remove this variable
+  const comics = useSelector(selectors.getComics)
 
   useEffect(() => {
     API.getComics().then(({ data }) => {
-      setComics(data.data.results)
+      setComicsResponse(data.data.results)
     })
   }, [])
 
-  useEffect(() => {
-    API.getCharacters().then(({ data }) => {
-      setCharacters(data.data.results)
-    })
-  }, [])
+  // useEffect(() => {
+  //   API.getCharacters().then(({ data }) => {
+  //     setCharacters(data.data.results)
+  //   })
+  // }, [])
 
-  useEffect(() => {
-    API.getCharacters2().then(({ data }) => {
-      console.log(data)
-    })
-  }, [])
+  // useEffect(() => {
+  //   API.getCharacters2().then(({ data }) => {
+  //     console.log(data)
+  //   })
+  // }, [])
 
-  console.log(comics)
-  console.log(characters)
+  console.log(comicsResponse)
+  // console.log(characters)
 
   const renderCarousel = () => (
     <CustomCarousel isMobile={isTablet}>
-      {comics.map((comic, index) => (
+      {comicsResponse.map((comic, index) => (
         <CarouselItem
           key={index}
           item={comic}
@@ -94,9 +102,11 @@ const Home = () => {
         customStyles={{ backgroundColor: '#F5F5F5' }}
         title='Procure o seu quadrinho preferido!'
       >
-        {comics.length === 20 ? renderCarousel() : renderLoading()}
+        {comicsResponse.length === 20 ? renderCarousel() : renderLoading()}
       </Section>
-      <section style={{ height: 500 }} />
+      <section style={{ height: 500 }}>
+        {comics}
+      </section>
     </>
   )
 }
