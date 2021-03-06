@@ -18,8 +18,8 @@ const CarouselItem = ({ item }) => {
   // const comics = useSelector(selectors.getComics)
   const dispatch = useDispatch()
 
-  const handleDecrement = (comic) => dispatch(removeFromList(comic))
-  const handleIncrement = (comic) => dispatch(addToList(comic))
+  const removeComicFromList = (comic) => dispatch(removeFromList(comic))
+  const addComicToList = (comic) => dispatch(addToList(comic))
 
   const preventDragHandler = (e) => {
     e.preventDefault()
@@ -39,7 +39,7 @@ const CarouselItem = ({ item }) => {
       >
         <Link
           className='carouselImageContainer'
-          to={`${paths.comics}?${item.id}`}
+          to={`comics/${item.id}`}
         >
           <h2 id='seeMore'>VER MAIS</h2>
           <img
@@ -55,12 +55,12 @@ const CarouselItem = ({ item }) => {
           </div>
           <div className='itemFooterButtons'>
             <Button
-              text='Adicionar a lista'
-              onClick={() => handleDecrement(item)}
+              text='Remover da lista'
+              onClick={() => removeComicFromList(item)}
             />
             <Button
-              text='Detalhes'
-              onClick={() => handleIncrement(item)}
+              text='Adicionar a lista'
+              onClick={() => addComicToList(item)}
             />
           </div>
         </div>
