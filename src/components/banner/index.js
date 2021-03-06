@@ -3,9 +3,25 @@ import { images } from '../../themes'
 
 import { getBreakpoints, useWindowDimensions } from '../../functions/utils'
 
-const Banner = () => {
+import './styles.scss'
+
+const Banner = ({
+  backgroundImage = images.headerBackground,
+  image = images.header,
+  shadowFilter,
+  text
+}) => {
   const { width } = useWindowDimensions()
   const { isDesktop, isTablet, isMobile } = getBreakpoints(width)
+  const desktopStyles = { paddingRight: 32, paddingLeft: 32 }
+  const tabletStyles = { paddingRight: 16, paddingLeft: 16 }
+  const mobileStyles = { paddingRight: 8, paddingLeft: 8 }
+
+  const getStyles = () => {
+    if (isDesktop) return desktopStyles
+    else if (isTablet) return tabletStyles
+    else if (isMobile) return mobileStyles
+  }
 
   const getwelcomeSectionContainerClass = () => {
     if (isDesktop) return 'welcomeSectionContainer'
@@ -19,30 +35,34 @@ const Banner = () => {
     else if (isMobile) return 'welcomeSectionTxt-mobile'
   }
   return (
-    <>
+    <section style={getStyles()}>
       <div className='backgroundImgContainer'>
         <div
           className='backgroundImg'
-          style={{ backgroundImage: `url(${images.headerBackground})` }}
+          style={{ backgroundImage: `url(${backgroundImage})` }}
         />
+        {shadowFilter && <div className='shadowFilter' />}
       </div>
-      <section id='#' className='welcomeSection'>
+      <div id='#' className='welcomeSection'>
         <div className={getwelcomeSectionContainerClass()}>
           <img
-            src={images.header}
+            src={image}
             alt='logo'
             className={`animatedImgSlideRight 
-            ${isDesktop ? 'animatedImg' : 'animatedImg-tablet'}`}
+            ${isDesktop
+              ? 'animatedImg'
+              : isTablet
+                ? 'animatedImg-tablet'
+                : 'animatedImg-mobile'}`}
           />
           <div
             className={`welcomeSectionTxtAppear ${getWelcomeSectionTxtClass()}`}
           >
-            Lorem Ipsum is simply dummy text of
-            the printing and typesetting industry.
+            {text}
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }
 

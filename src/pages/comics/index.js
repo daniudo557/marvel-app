@@ -15,7 +15,7 @@ const Comics = (props) => {
   useEffect(() => {
     setLoading(true)
     API.getComicsById(params.id).then(({ data }) => {
-      setComicsResponse(data.data.results)
+      setComicsResponse(data.data.results.pop())
       setLoading(false)
       setError(false)
     }).catch(
@@ -23,10 +23,17 @@ const Comics = (props) => {
     )
   }, [])
 
-  console.log(comicsResponse)
+  console.log(comicsResponse?.thumbnail?.path)
   return (
     <>
-      <Banner />
+      {isLoading
+        ? <div>loading</div>
+        : <Banner
+            shadowFilter
+            image={comicsResponse?.thumbnail?.path + '.' + comicsResponse?.thumbnail?.extension}
+            backgroundImage={comicsResponse?.thumbnail?.path + '.' + comicsResponse?.thumbnail?.extension}
+            text={comicsResponse?.title}
+          />}
       {!isLoading && isError
         ? <h1>Nao foi possível encontrar os dados do quadrinho</h1>
         : <h1>Deu certo</h1>}
