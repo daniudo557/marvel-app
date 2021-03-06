@@ -4,6 +4,7 @@ import API from '../../services/api'
 import { getComicImage } from '../../functions/utils'
 import Banner from '../../components/banner'
 import Section from '../../components/section'
+import { images } from '../../themes'
 
 const Comics = (props) => {
   const { params } = props.match
@@ -22,41 +23,69 @@ const Comics = (props) => {
       if (comicsResponse?.creators?.available > 0) {
         API.getCreatorsByComicId(params.id).then(({ data }) => {
           setCreatorResponse(data.data.results.pop())
-        }).catch(
+        }).catch(() => {
           setError(true)
-        )
+          setLoading(false)
+        })
       }
       setLoading(false)
       setError(false)
-    }).catch(
+    }).catch(() => {
       setError(true)
-    )
+      setLoading(false)
+    })
   }, [])
 
-  return (
+  const getComicReleasedDate = () => {
+    const unformatedDate = comicsResponse?.dates?.filter(item => item.type === 'focDate')[0].date
+    const date = new Date(unformatedDate)
+    return date.toLocaleDateString()
+  }
+
+  const renderComicInformation = () => (
     <>
-      {isLoading
-        ? <div>loading</div>
-        : <Banner
-            shadowFilter
-            image={getComicImage(comicsResponse)}
-            backgroundImage={getComicImage(comicsResponse)}
-            text={comicsResponse?.title}
-          />}
+      <h2>Criador: {creatorResponse
+        ? creatorResponse?.fullName
+        : 'Invalid Creator'}
+      </h2>
+      <h2>Data de publicação: {getComicReleasedDate()}</h2>
+      <h2>Número de páginas: {comicsResponse?.pageCount}</h2>
+      <h2>Descrição: {comicsResponse?.description
+        ? comicsResponse?.description
+        : 'Invalid description'}
+      </h2>
+    </>
+  )
+
+  const renderContent = () => (
+    <>
+      <Banner
+        shadowFilter
+        image={getComicImage(comicsResponse)}
+        backgroundImage={getComicImage(comicsResponse)}
+        text={comicsResponse?.title}
+      />
       <Section
         customStyles={{ backgroundColor: '#F5F5F5' }}
         title={comicsResponse?.title}
       >
-        {creatorResponse && <h2>Criador: {creatorResponse?.fullName}</h2>}
-        <h2>Data de publicação: {comicsResponse?.description}</h2>
-        <h2>Número de páginas: {comicsResponse?.pageCount}</h2>
-        <h2>Descrição: {comicsResponse?.description}</h2>
+        {renderComicInformation()}
       </Section>
-      {!isLoading && isError
-        ? <h1>Nao foi possível encontrar os dados do quadrinho</h1>
-        : <h1>Deu certo</h1>}
     </>
   )
+
+  const renderError = () => (
+    <Banner
+      shadowFilter
+      image={images.error}
+      text='Não foi possível carregar os dados do quadrinho'
+    />
+  )
+
+  if (isLoading) {
+    return <h1>Loading</h1>
+  }
+  return isError ? renderError() : renderContent()
 }
 
 export default Comics
