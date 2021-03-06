@@ -5,12 +5,15 @@ const INITIAL_STATE = {
 }
 
 const reducers = (state = INITIAL_STATE, action) => {
+  const getComicOnList = () => state.comics
+    .find(comics => comics.comicDetails.id === action.newValue.id)
+
   const addComicToList = () => {
     const comicsArray = state.comics
+    const isComicOnList = !!getComicOnList()
 
-    const isComicOnList = !!comicsArray
-      .find(comics => comics.comicDetails.id === action.newValue.id)
-
+    // if comic is not on list, it must start
+    // with numberOfComics equals to 1
     if (!isComicOnList) {
       const newComicObject = {
         numberOfComics: 1,
@@ -30,13 +33,14 @@ const reducers = (state = INITIAL_STATE, action) => {
 
   const removeComicFromList = () => {
     const comicsArray = state.comics
-
-    const comicObject = comicsArray
-      .find(comics => comics.comicDetails.id === action.newValue.id)
+    const comicObject = getComicOnList()
     const isComicOnList = !!comicObject
 
+    // if comic is not on list, it can't be removed
     if (!isComicOnList) { return [...comicsArray] }
 
+    // if numberOfComics is equals to 1, it object
+    // has to be be removed from list
     if (comicObject.numberOfComics === 1) {
       return comicsArray
         .filter((comic) => comic.comicDetails.id !== action.newValue.id)
