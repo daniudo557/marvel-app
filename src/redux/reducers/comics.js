@@ -6,34 +6,26 @@ const INITIAL_STATE = {
 
 const reducers = (state = INITIAL_STATE, action) => {
   const addComicToList = () => {
-    const comicObject = state.comics
-      .find(comics => comics.comicDetails.id === action.newValue.id)
+    const comicsArray = state.comics
 
-    const isComicOnList = !!comicObject
-    const newComicsArray = state.comics
+    const isComicOnList = !!comicsArray
+      .find(comics => comics.comicDetails.id === action.newValue.id)
 
     if (!isComicOnList) {
       const newComicObject = {
         numberOfComics: 1,
         comicDetails: action.newValue
       }
-      newComicsArray.push(newComicObject)
+      comicsArray.push(newComicObject)
 
-      console.log('ARRAY depois', newComicsArray)
-      return [...newComicsArray]
+      return [...comicsArray]
     }
 
-    const index = state.comics
-      .findIndex(comic => comic.comicDetails.id === action.newValue.id)
-
-    const newComicObject = {
-      numberOfComics: comicObject.numberOfComics + 1,
-      comicDetails: comicObject.comicDetails
-    }
-
-    newComicsArray[index] = newComicObject
-
-    return [...newComicsArray]
+    return comicsArray.map(comic =>
+      comic.comicDetails.id === action.newValue.id
+        ? { ...comic, numberOfComics: comic.numberOfComics + 1 }
+        : comic
+    )
   }
 
   switch (action.type) {
