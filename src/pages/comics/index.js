@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import API from '../../services/api'
-
+import { getComicImage } from '../../functions/utils'
 import Banner from '../../components/banner'
 
 const Comics = (props) => {

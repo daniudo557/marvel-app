@@ -28,3 +28,6 @@ export const getBreakpoints = (width) => {
 
   return { isDesktop, isTablet, isMobile }
 }
+
+export const getComicImage = (comic) =>
+  comic?.thumbnail?.path + '.' + comic?.thumbnail?.extension

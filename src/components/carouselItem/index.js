@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 
 import { removeFromList, addToList } from '../../redux/actions/comics'
 
-import { useWindowDimensions, getBreakpoints } from '../../functions/utils'
+import { useWindowDimensions, getBreakpoints, getComicImage } from '../../functions/utils'
 import Button from '../button'
 import './styles.scss'
 
@@ -43,7 +43,7 @@ const CarouselItem = ({ item }) => {
             className='carouselImage'
             onDragStart={preventDragHandler}
             alt={item.title}
-            src={item.thumbnail.path + '.' + item.thumbnail.extension}
+            src={getComicImage(item)}
           />
         </Link>
         <div className='itemFooter'>
