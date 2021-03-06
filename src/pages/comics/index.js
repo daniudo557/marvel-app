@@ -30,8 +30,8 @@ const Comics = (props) => {
         ? <div>loading</div>
         : <Banner
             shadowFilter
-            image={comicsResponse?.thumbnail?.path + '.' + comicsResponse?.thumbnail?.extension}
-            backgroundImage={comicsResponse?.thumbnail?.path + '.' + comicsResponse?.thumbnail?.extension}
+            image={getComicImage(comicsResponse)}
+            backgroundImage={getComicImage(comicsResponse)}
             text={comicsResponse?.title}
           />}
       {!isLoading && isError
