@@ -1,12 +1,11 @@
 import React from 'react'
+import Banner from '../../components/banner'
 
 const Comics = (props) => {
   const { params } = props.match
   console.log(params)
   return (
-    <div className=''>
-      Comics page
-    </div>
+    <Banner />
   )
 }
 
