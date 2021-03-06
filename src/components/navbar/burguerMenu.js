@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import paths from '../../routes/paths'
 import './styles.scss'
 
 const BurguerMenu = ({ items }) => {
@@ -8,15 +9,25 @@ const BurguerMenu = ({ items }) => {
 
   const renderBurguerItems = () => (
     items.map((item, index) => (
-      <Link
-        className='marvelDefaultText menuItem'
-        style={{ fontSize: 22, padding: '8px 0px 8px 0px' }}
-        key={index}
-        to={item.path}
-        onClick={() => setSidebarOpen(false)}
-      >
-        {item.text}
-      </Link>
+      item.path === paths.homeComicsHash
+        ? <a
+            key={index}
+            href={item.path}
+            className='marvelDefaultText menuItem'
+            style={{ fontSize: 22, padding: '8px 0px 8px 0px' }}
+            onClick={() => setSidebarOpen(false)}
+          >
+          {item.text}
+        </a>
+        : <Link
+            key={index}
+            to={item.path}
+            className='marvelDefaultText menuItem'
+            style={{ fontSize: 22, padding: '8px 0px 8px 0px' }}
+            onClick={() => setSidebarOpen(false)}
+          >
+          {item.text}
+          </Link>
     ))
   )
 

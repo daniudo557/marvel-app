@@ -42,13 +42,21 @@ const Navbar = () => {
       </Link>
       <div className='menuLine'>
         {menuItems.map((item, index) => (
-          <Link
-            to={item.path}
-            className='marvelDefaultText menuItem'
-            key={index}
-          >
-            {item.text}
-          </Link>
+          item.path === paths.homeComicsHash
+            ? <a
+                href={item.path}
+                className='marvelDefaultText menuItem'
+                key={index}
+              >
+              {item.text}
+            </a>
+            : <Link
+                to={item.path}
+                className='marvelDefaultText menuItem'
+                key={index}
+              >
+              {item.text}
+            </Link>
         ))}
 
       </div>
