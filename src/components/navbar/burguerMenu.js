@@ -1,38 +1,22 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import paths from '../../routes/paths'
 import './styles.scss'
 
 const BurguerMenu = ({ items }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
-  const renderHashLink = item => (
-    <a
-      href={item.path}
-      className='marvelDefaultText menuItem'
-      style={{ fontSize: 22, padding: '8px 0px 8px 0px' }}
-      onClick={() => setSidebarOpen(false)}
-    >
-      {item.text}
-    </a>
-  )
-  const renderPageLink = item => (
-    <Link
-      to={item.path}
-      className='marvelDefaultText menuItem'
-      style={{ fontSize: 22, padding: '8px 0px 8px 0px' }}
-      onClick={() => setSidebarOpen(false)}
-    >
-      {item.text}
-    </Link>
-  )
-
   const renderBurguerItems = () => (
-    items.map(item => (
-      item.path === paths.homeComicsHash
-        ? renderHashLink(item)
-        : renderPageLink(item)
+    items.map((item, index) => (
+      <Link
+        key={index}
+        to={item.path}
+        className='marvelDefaultText menuItem'
+        style={{ fontSize: 22, padding: '8px 0px 8px 0px' }}
+        onClick={() => setSidebarOpen(false)}
+      >
+        {item.text}
+      </Link>
     ))
   )
 

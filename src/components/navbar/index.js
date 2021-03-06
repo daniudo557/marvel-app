@@ -12,27 +12,10 @@ const Navbar = () => {
   const { isMobile } = getBreakpoints(width)
 
   const menuItems = [
-    { text: 'Quadrinhos', path: paths.homeComicsHash },
-    { text: 'Personagens', path: paths.comics },
-    { text: 'Minha lista', path: paths.home }
+    { text: 'Quadrinhos', path: paths.home },
+    { text: 'Personagens', path: paths.characters },
+    { text: 'Minha lista', path: paths.list }
   ]
-
-  const renderHashLink = item => (
-    <a
-      href={item.path}
-      className='marvelDefaultText menuItem'
-    >
-      {item.text}
-    </a>
-  )
-  const renderPageLink = item => (
-    <Link
-      to={item.path}
-      className='marvelDefaultText menuItem'
-    >
-      {item.text}
-    </Link>
-  )
 
   const renderMobileNavBar = () => (
     <div className='navBar navBar-mobile'>
@@ -58,10 +41,14 @@ const Navbar = () => {
         <img src={images.logo} className='marvelLogo' alt='logo' />
       </Link>
       <div className='menuLine'>
-        {menuItems.map(item => (
-          item.path === paths.homeComicsHash
-            ? renderHashLink(item)
-            : renderPageLink(item)
+        {menuItems.map((item, index) => (
+          <Link
+            key={index}
+            to={item.path}
+            className='marvelDefaultText menuItem'
+          >
+            {item.text}
+          </Link>
         ))}
 
       </div>
