@@ -37,7 +37,8 @@ const Banner = () => {
           <div
             className={`welcomeSectionTxtAppear ${getWelcomeSectionTxtClass()}`}
           >
-            COMICS
+            Lorem Ipsum is simply dummy text of
+            the printing and typesetting industry.
           </div>
         </div>
       </section>
