@@ -2,8 +2,8 @@ import React from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 
-import { actions } from '../../actions/counter'
-import { selectors } from '../../selectors/counter'
+import { actions } from '../../redux/actions/counter'
+import { selectors } from '../../redux/selectors/counter'
 
 import { useWindowDimensions, getBreakpoints } from '../../functions/utils'
 import Button from '../button'
