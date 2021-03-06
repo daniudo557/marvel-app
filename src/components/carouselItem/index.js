@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 
-import { actions } from '../../redux/actions/comics'
+import { removeFromList, addToList } from '../../redux/actions/comics'
 import { selectors } from '../../redux/selectors/comics'
 
 import { useWindowDimensions, getBreakpoints } from '../../functions/utils'
@@ -13,11 +13,11 @@ const CarouselItem = ({ item }) => {
   const { width } = useWindowDimensions()
   const { isTablet, isMobile } = getBreakpoints(width)
 
-  const comics = useSelector(selectors.getComics)
+  // const comics = useSelector(selectors.getComics)
   const dispatch = useDispatch()
 
-  const handleDecrement = () => dispatch(actions.removeFromList())
-  const handleIncrement = () => dispatch(actions.addToList())
+  const handleDecrement = () => dispatch(removeFromList())
+  const handleIncrement = (comic) => dispatch(addToList(comic))
 
   const preventDragHandler = (e) => {
     e.preventDefault()
@@ -44,7 +44,6 @@ const CarouselItem = ({ item }) => {
         <div className='itemFooter'>
           <div className='comicTitle'>
             {item.title}
-            {comics}
           </div>
           <div className='itemFooterButtons'>
             <Button
@@ -53,7 +52,7 @@ const CarouselItem = ({ item }) => {
             />
             <Button
               text='Detalhes'
-              onClick={handleIncrement}
+              onClick={() => handleIncrement(item)}
             />
           </div>
         </div>

@@ -44,6 +44,7 @@ const Home = () => {
   // }, [])
 
   console.log(comicsResponse)
+  console.log('REDUX', comics)
   // console.log(characters)
 
   const renderCarousel = () => (
@@ -105,7 +106,12 @@ const Home = () => {
         {comicsResponse.length === 20 ? renderCarousel() : renderLoading()}
       </Section>
       <section style={{ height: 500 }}>
-        {comics}
+        {comics.map((comic, index) => (
+          <div key={index} style={{ padding: 32 }}>
+            <h1>Comic title: {comic.comicDetails.title}</h1>
+            <h1>Number of comics: {comic.numberOfComics}</h1>
+          </div>
+        ))}
       </section>
     </>
   )

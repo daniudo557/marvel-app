@@ -1,12 +1,10 @@
 import { actionsTypes } from './actionsTypes'
 
-const actions = {
-  addToList: () => ({
-    type: actionsTypes.ADD_COMIC_TO_LIST
-  }),
-  removeFromList: () => ({
-    type: actionsTypes.REMOVE_COMIC_FROM_LIST
-  })
-}
+export const addToList = (value) => ({
+  type: actionsTypes.ADD_COMIC_TO_LIST,
+  newValue: value
+})
 
-export { actions }
+export const removeFromList = () => ({
+  type: actionsTypes.REMOVE_COMIC_FROM_LIST
+})
