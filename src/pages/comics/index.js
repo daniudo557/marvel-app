@@ -101,6 +101,7 @@ const Comics = (props) => {
     <Banner
       shadowFilter
       image={images.error}
+      backgroundImage={images.errorBackground}
       text='Não foi possível carregar os dados do quadrinho'
     />
   )
