@@ -51,6 +51,10 @@
     justify-content: space-evenly;
   
     &-tablet{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
       width: 75vmin;
     }
     &-mobile {
@@ -92,7 +96,6 @@
     }
 
     &-tablet {
-      width:100%;
       margin-top: 64px;
       align-self: center;
     }
@@ -107,10 +110,8 @@
 .animatedImg {
   pointer-events: none;
   width: 60vmin;
-  max-height: 584px;
   &-tablet {
-    width: 100%;
-    max-height: 690px;
+    max-height: 500px;
   }
   &-mobile {
     max-height: 320px;

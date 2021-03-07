@@ -43,7 +43,7 @@ const Banner = ({
         />
         {shadowFilter && <div className='shadowFilter' />}
       </div>
-      <div id='#' className='welcomeSection'>
+      <div className='welcomeSection'>
         <div className={getwelcomeSectionContainerClass()}>
           <img
             src={image}

@@ -32,7 +32,7 @@ const Home = () => {
     setLoading(true)
     API.getComics().then(({ data }) => {
       setComicsResponse(data.data.results)
-      setComicsFilter(comicsResponse)
+      setComicsFilter(data.data.results)
       setLoading(false)
     })
   }, [])
