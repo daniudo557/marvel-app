@@ -81,7 +81,7 @@ const Comics = (props) => {
         text={comicsResponse?.title}
       />
       <Section
-        customStyles={{ backgroundColor: '#F5F5F5' }}
+        customStyles={{ backgroundColor: '#EEEEEE' }}
         title={comicsResponse?.title}
       >
         {renderComicInformation()}
