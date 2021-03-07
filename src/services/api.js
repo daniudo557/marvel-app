@@ -10,7 +10,7 @@ const api = axios.create({ baseURL })
 
 const API = {}
 
-API.getComics = () => api.get(`/comics?${secret}`)
+API.getComics = () => api.get(`/comics?limit=100&${secret}`)
 API.getComicsById = (comicId) => api.get(`/comics/${comicId}?${secret}`)
 API.getStoriesByComicId = (comicId) =>
   api.get(`/comics/${comicId}/stories?${secret}`)
