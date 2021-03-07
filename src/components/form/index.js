@@ -29,8 +29,7 @@ const Form = ({ comics }) => {
   const handleFormSubmit = () => {
     if (isEmptyForm()) return
 
-    API.sendEmail({ ...fields, message: 'asdasdasd' })
-    console.log({ ...fields, list: parseComics(comics) })
+    API.sendEmail({ ...fields, comics: parseComics(comics) })
   }
 
   const isEmptyForm = () => {
