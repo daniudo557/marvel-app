@@ -14,8 +14,6 @@ const API = {}
 
 API.getComics = () => api.get(`/comics?limit=100&${secret}`)
 API.getComicsById = (comicId) => api.get(`/comics/${comicId}?${secret}`)
-API.getStoriesByComicId = (comicId) =>
-  api.get(`/comics/${comicId}/stories?${secret}`)
 API.getCreatorsByComicId = (comicId) =>
   api.get(`/comics/${comicId}/creators?${secret}`)
 API.sendEmail = data => emailApi.post('/send', data)
