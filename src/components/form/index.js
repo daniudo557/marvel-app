@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import API from '../../services/api'
 
 import Button from '../../components/button'
+import Card from '../../components/card'
 import './styles.scss'
 
 const Form = ({ comics }) => {
@@ -43,9 +44,11 @@ const Form = ({ comics }) => {
   }
 
   return (
-    <div className='formContainer'>
-      <label htmlFor='email'>E-mail</label>
+    <Card backgroundColor='#F2F2F2'>
+      <label>E-mail</label>
+      {isNameEmpty && <label className='errorLabel'>* Preencha o campo "E-mail"</label>}
       <input
+        className={`formInput ${isNameEmpty && 'errorBorder'}`}
         onChange={handleInputChange}
         type='text'
         id='email'
@@ -53,8 +56,10 @@ const Form = ({ comics }) => {
         placeholder='exemplo@email.com'
       />
 
-      <label htmlFor='name'>Nome</label>
+      <label>Nome: </label>
+      {isNameEmpty && <label className='errorLabel'>* Preencha o campo "Nome"</label>}
       <input
+        className={`formInput ${isNameEmpty && 'errorBorder'}`}
         onChange={handleInputChange}
         type='text'
         id='name'
@@ -65,9 +70,7 @@ const Form = ({ comics }) => {
         text='Enviar email'
         onClick={() => handleFormSubmit()}
       />
-      {isNameEmpty && <h1>Preencha o campo "nome"</h1>}
-      {isEmailEmpty && <h1>Preencha o campo "email"</h1>}
-    </div>
+    </Card>
   )
 }
 
