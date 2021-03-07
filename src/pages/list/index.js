@@ -7,6 +7,7 @@ import { selectors } from '../../redux/selectors/comics'
 import Banner from '../../components/banner'
 import Button from '../../components/button'
 import Section from '../../components/section'
+import Form from '../../components/form'
 import { images } from '../../themes'
 
 const List = () => {
@@ -43,6 +44,14 @@ const List = () => {
             </div>
           ))}
         </Section>
+        <Section
+          customStyles={{ backgroundColor: '#FFFFFF' }}
+          title='Envie a lista para para seu email'
+        >
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <Form comics={comics} />
+          </div>
+        </Section>
       </div>
     )
 
@@ -50,7 +59,7 @@ const List = () => {
     <Banner
       image={images.error}
       backgroundImage={images.errorBackground}
-      text='Você ainda não possui nenhum quadrinho em sua lista
+      text='Você ainda não possui nenhum quadrinho em sua lista.
          Adicione quadrinhos na página principal'
     />
   )
