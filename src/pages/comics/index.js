@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { removeFromList, addToList } from '../../redux/actions/comics'
+import { selectors } from '../../redux/selectors/comics'
 
 import API from '../../services/api'
-import { getComicImage } from '../../functions/utils'
+import { getComicImage, getNumberOnList } from '../../functions/utils'
+
+import Button from '../../components/button'
 import Banner from '../../components/banner'
 import Section from '../../components/section'
+
 import { images } from '../../themes'
 
 const Comics = (props) => {
@@ -14,6 +21,13 @@ const Comics = (props) => {
   const [creatorResponse, setCreatorResponse] = useState(null)
   const [isLoading, setLoading] = useState(false)
   const [isError, setError] = useState(false)
+
+  const comics = useSelector(selectors.getComics)
+
+  const dispatch = useDispatch()
+
+  const removeComicFromList = (comic) => dispatch(removeFromList(comic))
+  const addComicToList = (comic) => dispatch(addToList(comic))
 
   useEffect(() => {
     setLoading(true)
@@ -54,6 +68,7 @@ const Comics = (props) => {
         ? comicsResponse?.description
         : 'Invalid description'}
       </h2>
+      <h2>Na sua lista: {getNumberOnList(comics, comicsResponse?.id)}</h2>
     </>
   )
 
@@ -70,6 +85,14 @@ const Comics = (props) => {
         title={comicsResponse?.title}
       >
         {renderComicInformation()}
+        <Button
+          text='Remover da lista'
+          onClick={() => removeComicFromList(comicsResponse)}
+        />
+        <Button
+          text='Adicionar a lista'
+          onClick={() => addComicToList(comicsResponse)}
+        />
       </Section>
     </>
   )
