@@ -35,8 +35,8 @@ const List = () => {
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <Card backgroundColor='white'>
 
-                  <h1>Título: {comic.comicDetails.title}</h1>
-                  <h1>Na sua lista: {comic.numberOfComics}</h1>
+                  <h3>Título: {comic.comicDetails.title}</h3>
+                  <h3>Na sua lista: {comic.numberOfComics}</h3>
                   <Button
                     text='Remover da lista'
                     onClick={() => removeComicFromList(comic.comicDetails)}
