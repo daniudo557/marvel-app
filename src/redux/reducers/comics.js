@@ -1,16 +1,13 @@
 import { actionsTypes } from '../actions/actionsTypes'
-
+import { getComicOnList } from '../../functions/utils'
 const INITIAL_STATE = {
   comics: []
 }
 
 const reducers = (state = INITIAL_STATE, action) => {
-  const getComicOnList = () => state.comics
-    .find(comics => comics.comicDetails.id === action.newValue.id)
-
   const addComicToList = () => {
     const comicsArray = state.comics
-    const isComicOnList = !!getComicOnList()
+    const isComicOnList = !!getComicOnList(comicsArray, action.newValue.id)
 
     // if comic is not on list, it must start
     // with numberOfComics equals to 1
@@ -33,7 +30,7 @@ const reducers = (state = INITIAL_STATE, action) => {
 
   const removeComicFromList = () => {
     const comicsArray = state.comics
-    const comicObject = getComicOnList()
+    const comicObject = getComicOnList(comicsArray, action.newValue.id)
     const isComicOnList = !!comicObject
 
     // if comic is not on list, it can't be removed
