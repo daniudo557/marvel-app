@@ -116,7 +116,7 @@ const Form = ({ comics }) => {
   const renderLoading = () => (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <ReactLoading
-        type='spinningBubbles'
+        type='spin'
         color='#F0141E'
         height='20%'
         width='20%'

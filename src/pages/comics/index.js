@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { removeFromList, addToList } from '../../redux/actions/comics'
 import { selectors } from '../../redux/selectors/comics'
+import ReactLoading from 'react-loading'
 
 import API from '../../services/api'
 import { getComicImage, getNumberOnList } from '../../functions/utils'
@@ -108,9 +109,27 @@ const Comics = (props) => {
     />
   )
 
+  const renderLoading = () => (
+    <div style={{
+      display: 'flex',
+      height: '100vh',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}
+    >
+      <ReactLoading
+        type='spin'
+        color='#F0141E'
+        height='20%'
+        width='20%'
+      />
+    </div>
+  )
+
   if (isLoading) {
-    return <h1>Loading</h1>
+    return renderLoading()
   }
+
   return isError ? renderError() : renderContent()
 }
 
