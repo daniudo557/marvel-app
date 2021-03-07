@@ -67,9 +67,7 @@ const CarouselItem = ({ item, isLoading }) => {
   return (
     <div
       className={`carouselItemContainer
-        ${isMobile
-          ? 'carouselItemContainer-mobile'
-          : 'carouselItemContainer-tablet'}`}
+        ${isMobile && 'carouselItemContainer-mobile'}`}
     >
       <div
         id='arrow'

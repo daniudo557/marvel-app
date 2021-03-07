@@ -12,12 +12,11 @@
     -moz-box-shadow: -1px 8px 30px 4px rgba(0,0,0,0.24);
       color: #F0141E
   }
-  
   &-tablet {
-    width: 300px;
     height: 90%;
   }
 }
+
 .carouselItemContainer {
   height: 500px;
   width: 400px;
@@ -31,11 +30,7 @@
   &-mobile {
     width: 100%;
   }
-  &-tablet {
-  }
 }
-
-
 
 .carouselImage {
   display: flex;
