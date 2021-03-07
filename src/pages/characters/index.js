@@ -1,9 +1,7 @@
 import React from 'react'
 import Banner from '../../components/banner'
 
-const Characters = (props) => {
-  const { params } = props.match
-  console.log(params)
+const Characters = () => {
   return (
     <div className=''>
       <Banner />

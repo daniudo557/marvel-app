@@ -15,7 +15,6 @@ import { images } from '../../themes'
 
 const Comics = (props) => {
   const { params } = props.match
-  console.log(params)
 
   const [comicsResponse, setComicsResponse] = useState([])
   const [creatorResponse, setCreatorResponse] = useState(null)
