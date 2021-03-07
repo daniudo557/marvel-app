@@ -145,11 +145,9 @@
   background: linear-gradient(90deg, transparent, 
           rgba(255, 255, 255, 0.2), transparent); 
 
-  /* Adding animation */ 
   animation: loading 3s infinite; 
 } 
 
-/* Loading Animation */ 
 @keyframes loading { 
   100% { 
       transform: translateX(100%); 

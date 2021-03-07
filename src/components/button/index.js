@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.scss'
 
-const Button = ({ text, color, onClick = () => {} }) => {
+const Button = ({ text, onClick = () => {} }) => {
   return (
     <button onClick={onClick} className='buttonContainer'>
       {text}
