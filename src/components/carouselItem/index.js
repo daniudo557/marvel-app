@@ -16,7 +16,7 @@ import {
 import Button from '../button'
 import './styles.scss'
 
-const CarouselItem = ({ item, isLoading }) => {
+const CarouselItem = ({ item, isLoading, isComics }) => {
   const { width } = useWindowDimensions()
   const { isTablet, isMobile } = getBreakpoints(width)
 
@@ -30,37 +30,46 @@ const CarouselItem = ({ item, isLoading }) => {
     e.preventDefault()
   }
 
+  const getTitle = () => isComics ? item.title : item.name
+  const renderButtons = () => (
+    <div className='itemFooterButtons'>
+      <Button
+        text='Remover da lista'
+        onClick={() => removeComicFromList(item)}
+      />
+      <Button
+        text='Adicionar à lista'
+        onClick={() => addComicToList(item)}
+      />
+    </div>
+  )
+  const getNumberOfComics = () => (
+    <h2 className='numberOfComicIndicator'>
+      {getNumberOnList(comics, item.id)}
+    </h2>
+  )
+
   const renderContent = () => (
     <>
       <Link
-        className='carouselImageContainer'
+        className={`carouselImageContainer ${!isComics &&
+          'carouselImageContainer-characters'}`}
         to={`comics/${item.id}`}
       >
+        {isComics && getNumberOfComics()}
         <h2 id='seeMore'>VER MAIS</h2>
         <img
           className='carouselImage'
           onDragStart={preventDragHandler}
-          alt={item.title}
+          alt={getTitle()}
           src={getComicImage(item)}
         />
-        <h2 className='numberOfComicIndicator'>
-          {getNumberOnList(comics, item.id)}
-        </h2>
       </Link>
       <div className='itemFooter'>
         <div className='comicTitle'>
-          {item.title}
+          {getTitle()}
         </div>
-        <div className='itemFooterButtons'>
-          <Button
-            text='Remover da lista'
-            onClick={() => removeComicFromList(item)}
-          />
-          <Button
-            text='Adicionar à lista'
-            onClick={() => addComicToList(item)}
-          />
-        </div>
+        {isComics && renderButtons()}
       </div>
     </>
   )

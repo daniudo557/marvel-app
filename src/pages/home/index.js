@@ -44,6 +44,7 @@ const Home = () => {
         <CarouselItem
           key={index}
           item={comic}
+          isComics
         />
       ))}
     </CustomCarousel>
