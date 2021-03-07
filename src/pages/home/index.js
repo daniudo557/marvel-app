@@ -55,8 +55,7 @@ const Home = () => {
   return (
     <>
       <Banner
-        text='Lorem Ipsum is simply dummy text of
-            the printing and typesetting industry.'
+        text='Bem vindo(a) ao Marvel-App! Explore o mundo dos quadrinhos'
       />
       <Section
         id='comics'
