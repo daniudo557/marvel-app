@@ -17,6 +17,7 @@ const Form = ({ comics }) => {
   const [isNameEmpty, setNameEmpty] = useState(false)
   const [isLoading, setLoading] = useState(false)
   const [isError, setError] = useState(false)
+  const [isSuccess, setSuccess] = useState(false)
 
   const parseComics = (comicsArray) => (
     comicsArray.map((comic) => ({
@@ -32,9 +33,15 @@ const Form = ({ comics }) => {
   }
 
   const sendEmail = () => {
+    setSuccess(false)
     setLoading(true)
+
     API.sendEmail({ ...fields, comics: parseComics(comics) })
-      .then(() => setLoading(false))
+      .then(() => {
+        setLoading(false)
+        setSuccess(true)
+      }
+      )
       .catch(() => {
         setError(true)
         setLoading(false)
@@ -57,15 +64,27 @@ const Form = ({ comics }) => {
     return (isNameEmpty || isEmailEmpty)
   }
 
-  const renderSendEmailErrorLabel = () => (
-    <h5 className='errorLabel'>
-      * Não foi possível enviar o email. Tente novamente mais tarde
-    </h5>
-  )
+  const renderResponseLabel = () => {
+    let customClass = ''
+    let text = ''
+    if (isError) {
+      customClass = 'errorLabel'
+      text = '* Não foi possível enviar o email. Tente novamente mais tarde'
+    } else if (isSuccess) {
+      customClass = 'successLabel'
+      text = '* Email enviado com sucesso! Confira sua caixa de entrada'
+    }
+
+    return (
+      <h5 className={`${customClass}`}>
+        {text}
+      </h5>
+    )
+  }
 
   const renderContent = () => (
     <>
-      {!isError && renderSendEmailErrorLabel()}
+      {(isError || isSuccess) && renderResponseLabel()}
       <label>E-mail</label>
       {isEmailEmpty && <label className='errorLabel'>* Preencha o campo "E-mail"</label>}
       <input
