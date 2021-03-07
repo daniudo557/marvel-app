@@ -24,7 +24,7 @@ const List = () => {
       <div className=''>
         <Banner
           image={images.list}
-          text='Consulte sua lista de quadrinhos'
+          text='Gerencie sua lista de quadrinhos!'
         />
         <Section
           customStyles={{ backgroundColor: '#F5F5F5' }}
@@ -65,7 +65,7 @@ const List = () => {
       image={images.error}
       backgroundImage={images.errorBackground}
       text='Você ainda não possui nenhum quadrinho em sua lista.
-         Adicione quadrinhos na página principal'
+         Adicione quadrinhos na página principal!'
     />
   )
 
