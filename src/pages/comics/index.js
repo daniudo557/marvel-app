@@ -120,8 +120,8 @@ const Comics = (props) => {
       <ReactLoading
         type='spin'
         color='#F0141E'
-        height='20%'
-        width='20%'
+        height='6%'
+        width='6%'
       />
     </div>
   )
