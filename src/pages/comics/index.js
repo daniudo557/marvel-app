@@ -89,7 +89,7 @@ const Comics = (props) => {
           onClick={() => removeComicFromList(comicsResponse)}
         />
         <Button
-          text='Adicionar a lista'
+          text='Adicionar à lista'
           onClick={() => addComicToList(comicsResponse)}
         />
       </Section>

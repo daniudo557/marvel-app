@@ -57,7 +57,7 @@ const CarouselItem = ({ item, isLoading }) => {
             onClick={() => removeComicFromList(item)}
           />
           <Button
-            text='Adicionar a lista'
+            text='Adicionar à lista'
             onClick={() => addComicToList(item)}
           />
         </div>

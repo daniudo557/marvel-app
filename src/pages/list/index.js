@@ -37,7 +37,7 @@ const List = () => {
                 onClick={() => removeComicFromList(comic.comicDetails)}
               />
               <Button
-                text='Adicionar a lista'
+                text='Adicionar à lista'
                 onClick={() => addComicToList(comic.comicDetails)}
               />
             </div>
