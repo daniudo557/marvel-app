@@ -11,11 +11,6 @@ import CustomCarousel from '../../components/customCarousel'
 import CarouselItem from '../../components/carouselItem'
 import SearchBar from '../../components/searchBar'
 
-// TODO: Remove this import
-import { useSelector } from 'react-redux'
-import { selectors } from '../../redux/selectors/comics'
-//
-
 const Home = () => {
   const { width } = useWindowDimensions()
   const { isTablet } = getBreakpoints(width)
@@ -23,10 +18,6 @@ const Home = () => {
   const [comicsResponse, setComicsResponse] = useState([])
   const [comicsFiltered, setComicsFilter] = useState([])
   const [isLoading, setLoading] = useState(false)
-  // const [characters, setCharacters] = useState([])
-
-  // TODO: Remove this variable
-  const comics = useSelector(selectors.getComics)
 
   useEffect(() => {
     setLoading(true)
@@ -36,22 +27,6 @@ const Home = () => {
       setLoading(false)
     })
   }, [])
-
-  // useEffect(() => {
-  //   API.getCharacters().then(({ data }) => {
-  //     setCharacters(data.data.results)
-  //   })
-  // }, [])
-
-  // useEffect(() => {
-  //   API.getCharacters2().then(({ data }) => {
-  //     console.log(data)
-  //   })
-  // }, [])
-
-  console.log(comicsResponse)
-  console.log('REDUX', comics)
-  // console.log(characters)
 
   const renderCarousel = () => (
     <CustomCarousel isMobile={isTablet}>
@@ -94,14 +69,6 @@ const Home = () => {
         />
         {isLoading ? renderLoading() : renderCarousel()}
       </Section>
-      <section style={{ height: 500 }}>
-        {comics.map((comic, index) => (
-          <div key={index} style={{ padding: 32 }}>
-            <h1>Comic title: {comic.comicDetails.title}</h1>
-            <h1>Number of comics: {comic.numberOfComics}</h1>
-          </div>
-        ))}
-      </section>
     </>
   )
 }
