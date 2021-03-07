@@ -8,6 +8,7 @@ import API from '../../services/api'
 import { getComicImage, getNumberOnList } from '../../functions/utils'
 
 import Button from '../../components/button'
+import Card from '../../components/card'
 import Banner from '../../components/banner'
 import Section from '../../components/section'
 
@@ -56,19 +57,29 @@ const Comics = (props) => {
   }
 
   const renderComicInformation = () => (
-    <>
-      <h2>Criador: {creatorResponse
-        ? creatorResponse?.fullName
-        : 'Invalid Creator'}
-      </h2>
-      <h2>Data de publicação: {getComicReleasedDate()}</h2>
-      <h2>Número de páginas: {comicsResponse?.pageCount}</h2>
-      <h2>Descrição: {comicsResponse?.description
-        ? comicsResponse?.description
-        : 'Invalid description'}
-      </h2>
-      <h2>Na sua lista: {getNumberOnList(comics, comicsResponse?.id)}</h2>
-    </>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <Card backgroundColor='white'>
+        <h3>Criador: {creatorResponse
+          ? creatorResponse?.fullName
+          : 'Invalid Creator'}
+        </h3>
+        <h3>Data de publicação: {getComicReleasedDate()}</h3>
+        <h3>Número de páginas: {comicsResponse?.pageCount}</h3>
+        <h3>Descrição: {comicsResponse?.description
+          ? comicsResponse?.description
+          : 'Invalid description'}
+        </h3>
+        <h3>Na sua lista: {getNumberOnList(comics, comicsResponse?.id)}</h3>
+        <Button
+          text='Remover da lista'
+          onClick={() => removeComicFromList(comicsResponse)}
+        />
+        <Button
+          text='Adicionar à lista'
+          onClick={() => addComicToList(comicsResponse)}
+        />
+      </Card>
+    </div>
   )
 
   const renderContent = () => (
@@ -84,14 +95,6 @@ const Comics = (props) => {
         title={comicsResponse?.title}
       >
         {renderComicInformation()}
-        <Button
-          text='Remover da lista'
-          onClick={() => removeComicFromList(comicsResponse)}
-        />
-        <Button
-          text='Adicionar à lista'
-          onClick={() => addComicToList(comicsResponse)}
-        />
       </Section>
     </>
   )

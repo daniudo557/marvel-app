@@ -6,6 +6,7 @@ import { selectors } from '../../redux/selectors/comics'
 
 import Banner from '../../components/banner'
 import Button from '../../components/button'
+import Card from '../../components/card'
 import Section from '../../components/section'
 import Form from '../../components/form'
 import { images } from '../../themes'
@@ -31,21 +32,26 @@ const List = () => {
         >
           {comics.map((comic, index) => (
             <div key={index} style={{ padding: 32 }}>
-              <h1>Título: {comic.comicDetails.title}</h1>
-              <h1>Na sua lista: {comic.numberOfComics}</h1>
-              <Button
-                text='Remover da lista'
-                onClick={() => removeComicFromList(comic.comicDetails)}
-              />
-              <Button
-                text='Adicionar à lista'
-                onClick={() => addComicToList(comic.comicDetails)}
-              />
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <Card backgroundColor='white'>
+
+                  <h1>Título: {comic.comicDetails.title}</h1>
+                  <h1>Na sua lista: {comic.numberOfComics}</h1>
+                  <Button
+                    text='Remover da lista'
+                    onClick={() => removeComicFromList(comic.comicDetails)}
+                  />
+                  <Button
+                    text='Adicionar à lista'
+                    onClick={() => addComicToList(comic.comicDetails)}
+                  />
+                </Card>
+              </div>
             </div>
           ))}
         </Section>
         <Section
-          customStyles={{ backgroundColor: '#FFFFFF' }}
+          customStyles={{ backgroundColor: '#EEEEEE' }}
           title='Envie a lista para para seu email'
         >
           <div style={{ display: 'flex', justifyContent: 'center' }}>

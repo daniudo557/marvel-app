@@ -46,9 +46,9 @@ const Form = ({ comics }) => {
   return (
     <Card backgroundColor='#F2F2F2'>
       <label>E-mail</label>
-      {isNameEmpty && <label className='errorLabel'>* Preencha o campo "E-mail"</label>}
+      {isEmailEmpty && <label className='errorLabel'>* Preencha o campo "E-mail"</label>}
       <input
-        className={`formInput ${isNameEmpty && 'errorBorder'}`}
+        className={`formInput ${isEmailEmpty && 'errorBorder'}`}
         onChange={handleInputChange}
         type='text'
         id='email'
