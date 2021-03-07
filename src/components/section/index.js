@@ -7,9 +7,9 @@ const Section = ({ title, customStyles, children, id }) => {
   const { width } = useWindowDimensions()
   const { isDesktop, isTablet, isMobile } = getBreakpoints(width)
 
-  const desktopStyles = { ...customStyles, paddingRight: 32, paddingLeft: 32 }
-  const tabletStyles = { ...customStyles, paddingRight: 16, paddingLeft: 16 }
-  const mobileStyles = { ...customStyles, paddingRight: 8, paddingLeft: 8 }
+  const desktopStyles = { ...customStyles, padding: 32 }
+  const tabletStyles = { ...customStyles, padding: 16 }
+  const mobileStyles = { ...customStyles, padding: 8 }
 
   const getStyles = () => {
     if (isDesktop) return desktopStyles

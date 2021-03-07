@@ -31,7 +31,10 @@ const BurguerMenu = ({ items }) => {
   )
 
   const renderBurguerButton = () => (
-    <div className='burgerButtonContainer'>
+    <div className={sidebarOpen
+      ? 'burgerButtonContainer-opened'
+      : 'burgerButtonContainer'}
+    >
       <div
         className='burgerButton'
         onClick={() => setSidebarOpen(!sidebarOpen)}

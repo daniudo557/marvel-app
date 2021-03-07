@@ -33,12 +33,22 @@
   display: block;
   align-self: center;
   cursor: pointer;
-}
+  
+  &Container {
+    display: flex;
+    height: 100%;
+    width: 36px;
+    align-items: center;
+    justify-content:center;
 
-.burgerButtonContainer {
-  display: flex;
-  justify-content:flex-end;
-  height: 32px;
+    &-opened {
+      height: 48px; 
+      display: flex;
+      justify-content:flex-end;
+      align-items: flex-end;
+      width: 100%;
+    }
+  }
 }
 
 .sideBarMenu {
