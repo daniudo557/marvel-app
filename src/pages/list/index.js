@@ -55,9 +55,7 @@ const List = () => {
     />
   )
 
-  return comics.length > 0
-    ? renderContent()
-    : renderEmptyList()
+  return comics.length > 0 ? renderContent() : renderEmptyList()
 }
 
 export default List
