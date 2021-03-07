@@ -1,30 +1,31 @@
 {
   "files": {
-    "main.css": "/marvel-app/static/css/main.ae44fb08.chunk.css",
-    "main.js": "/marvel-app/static/js/main.7822d606.chunk.js",
-    "main.js.map": "/marvel-app/static/js/main.7822d606.chunk.js.map",
-    "runtime-main.js": "/marvel-app/static/js/runtime-main.d56e6e69.js",
-    "runtime-main.js.map": "/marvel-app/static/js/runtime-main.d56e6e69.js.map",
+    "main.css": "/marvel-app/static/css/main.5b93db42.chunk.css",
+    "main.js": "/marvel-app/static/js/main.5eff1a95.chunk.js",
+    "main.js.map": "/marvel-app/static/js/main.5eff1a95.chunk.js.map",
+    "runtime-main.js": "/marvel-app/static/js/runtime-main.8f9916d9.js",
+    "runtime-main.js.map": "/marvel-app/static/js/runtime-main.8f9916d9.js.map",
     "static/css/2.173e9635.chunk.css": "/marvel-app/static/css/2.173e9635.chunk.css",
-    "static/js/2.54545c89.chunk.js": "/marvel-app/static/js/2.54545c89.chunk.js",
-    "static/js/2.54545c89.chunk.js.map": "/marvel-app/static/js/2.54545c89.chunk.js.map",
-    "static/js/3.0d8198bf.chunk.js": "/marvel-app/static/js/3.0d8198bf.chunk.js",
-    "static/js/3.0d8198bf.chunk.js.map": "/marvel-app/static/js/3.0d8198bf.chunk.js.map",
+    "static/js/2.3257735b.chunk.js": "/marvel-app/static/js/2.3257735b.chunk.js",
+    "static/js/2.3257735b.chunk.js.map": "/marvel-app/static/js/2.3257735b.chunk.js.map",
+    "static/js/3.52989aa7.chunk.js": "/marvel-app/static/js/3.52989aa7.chunk.js",
+    "static/js/3.52989aa7.chunk.js.map": "/marvel-app/static/js/3.52989aa7.chunk.js.map",
     "index.html": "/marvel-app/index.html",
     "static/css/2.173e9635.chunk.css.map": "/marvel-app/static/css/2.173e9635.chunk.css.map",
-    "static/css/main.ae44fb08.chunk.css.map": "/marvel-app/static/css/main.ae44fb08.chunk.css.map",
-    "static/js/2.54545c89.chunk.js.LICENSE.txt": "/marvel-app/static/js/2.54545c89.chunk.js.LICENSE.txt",
+    "static/css/main.5b93db42.chunk.css.map": "/marvel-app/static/css/main.5b93db42.chunk.css.map",
+    "static/js/2.3257735b.chunk.js.LICENSE.txt": "/marvel-app/static/js/2.3257735b.chunk.js.LICENSE.txt",
     "static/media/index.css": "/marvel-app/static/media/BentonSans-Comp-Black-Regular.697ae783.otf",
+    "static/media/deadpool-sad.png": "/marvel-app/static/media/deadpool-sad.ee4d77fb.png",
     "static/media/marvel-logo.png": "/marvel-app/static/media/marvel-logo.568d8c62.png",
     "static/media/miles-morales.png": "/marvel-app/static/media/miles-morales.c51f6de4.png",
     "static/media/ny.jpg": "/marvel-app/static/media/ny.d8dfa83b.jpg",
     "static/media/styles.css": "/marvel-app/static/media/revicons.e8746a62.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.d56e6e69.js",
+    "static/js/runtime-main.8f9916d9.js",
     "static/css/2.173e9635.chunk.css",
-    "static/js/2.54545c89.chunk.js",
-    "static/css/main.ae44fb08.chunk.css",
-    "static/js/main.7822d606.chunk.js"
+    "static/js/2.3257735b.chunk.js",
+    "static/css/main.5b93db42.chunk.css",
+    "static/js/main.5eff1a95.chunk.js"
   ]
 }
