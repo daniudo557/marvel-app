@@ -39,9 +39,20 @@ const Home = () => {
     </CustomCarousel>
   )
 
-  const renderLoading = () => (
-    <div style={{ width: 300, height: 500 }}>loading</div>
-  )
+  const renderLoading = () => {
+    const loadinRandomArray =
+     Array(5).fill().map(() => Math.round(Math.random() * 5))
+    return (
+      <CustomCarousel isMobile={isTablet}>
+        {loadinRandomArray.map((item, index) => (
+          <CarouselItem
+            key={index}
+            isLoading
+          />
+        ))}
+      </CustomCarousel>
+    )
+  }
 
   const searchComics = (text) => {
     const textTypedInLowerCase = text.toLowerCase()

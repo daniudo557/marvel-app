@@ -16,7 +16,7 @@ import {
 import Button from '../button'
 import './styles.scss'
 
-const CarouselItem = ({ item }) => {
+const CarouselItem = ({ item, isLoading }) => {
   const { width } = useWindowDimensions()
   const { isTablet, isMobile } = getBreakpoints(width)
 
@@ -30,50 +30,54 @@ const CarouselItem = ({ item }) => {
     e.preventDefault()
   }
 
+  const renderContent = () => (
+    <>
+      <Link
+        className='carouselImageContainer'
+        to={`comics/${item.id}`}
+      >
+        <h2 id='seeMore'>VER MAIS</h2>
+        <img
+          className='carouselImage'
+          onDragStart={preventDragHandler}
+          alt={item.title}
+          src={getComicImage(item)}
+        />
+        <h2 className='numberOfComicIndicator'>
+          {getNumberOnList(comics, item.id)}
+        </h2>
+      </Link>
+      <div className='itemFooter'>
+        <div className='comicTitle'>
+          {item.title}
+        </div>
+        <div className='itemFooterButtons'>
+          <Button
+            text='Remover da lista'
+            onClick={() => removeComicFromList(item)}
+          />
+          <Button
+            text='Adicionar a lista'
+            onClick={() => addComicToList(item)}
+          />
+        </div>
+      </div>
+    </>
+  )
   return (
     <div
-      className={`carouselItemContainer 
+      className={`carouselItemContainer
         ${isMobile
           ? 'carouselItemContainer-mobile'
           : 'carouselItemContainer-tablet'}`}
     >
       <div
         id='arrow'
-        className={`carouselItem ${isTablet && 'carouselItem-tablet'}`}
-        onClick={() => console.log(item.id)}
+        className={`carouselItem 
+        ${isTablet && 'carouselItem-tablet'}
+        ${isLoading && 'loading'}`}
       >
-        <Link
-          className='carouselImageContainer'
-          to={`comics/${item.id}`}
-        >
-          <h2 id='seeMore'>VER MAIS</h2>
-          <img
-            className='carouselImage'
-            onDragStart={preventDragHandler}
-            alt={item.title}
-            src={getComicImage(item)}
-          />
-          <h2
-            className='numberOfComicIndicator'
-          >
-            {getNumberOnList(comics, item.id)}
-          </h2>
-        </Link>
-        <div className='itemFooter'>
-          <div className='comicTitle'>
-            {item.title}
-          </div>
-          <div className='itemFooterButtons'>
-            <Button
-              text='Remover da lista'
-              onClick={() => removeComicFromList(item)}
-            />
-            <Button
-              text='Adicionar a lista'
-              onClick={() => addComicToList(item)}
-            />
-          </div>
-        </div>
+        {!isLoading && renderContent()}
       </div>
     </div>
   )
