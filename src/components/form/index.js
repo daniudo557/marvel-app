@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import API from '../../services/api'
+
 import Button from '../../components/button'
 import './styles.scss'
 
@@ -24,9 +26,10 @@ const Form = ({ comics }) => {
     setFields(fields)
   }
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = () => {
     if (isEmptyForm()) return
 
+    API.sendEmail({ ...fields, message: 'asdasdasd' })
     console.log({ ...fields, list: parseComics(comics) })
   }
 
@@ -52,7 +55,13 @@ const Form = ({ comics }) => {
       />
 
       <label htmlFor='name'>Nome</label>
-      <input onChange={handleInputChange} type='text' id='name' name='name' placeholder='Daniel Macedo' />
+      <input
+        onChange={handleInputChange}
+        type='text'
+        id='name'
+        name='name'
+        placeholder='Daniel Macedo'
+      />
       <Button
         text='Enviar email'
         onClick={() => handleFormSubmit()}
