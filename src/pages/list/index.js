@@ -28,10 +28,10 @@ const List = () => {
         />
         <Section
           customStyles={{ backgroundColor: '#F5F5F5' }}
-          title='Consulte sua lista de quadrinhos'
+          title='Sua lista'
         >
           {comics.map((comic, index) => (
-            <div key={index} style={{ padding: 32 }}>
+            <div key={index} style={{ paddingTop: 16 }}>
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <Card backgroundColor='white'>
 
@@ -52,7 +52,7 @@ const List = () => {
         </Section>
         <Section
           customStyles={{ backgroundColor: '#EEEEEE' }}
-          title='Envie a lista para para seu email'
+          title='Facilite! Envie sua lista para o email desejado'
         >
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <Form comics={comics} />
