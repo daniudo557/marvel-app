@@ -28,6 +28,16 @@ const Home = () => {
     })
   }, [])
 
+  const renderContent = () => (
+    comicsFiltered.length === 0
+      ? renderComicsNotFount()
+      : renderCarousel()
+  )
+  const renderComicsNotFount = () => (
+    <div className='comicsNotFoundContainer'>
+      <h2>Não foi encontrado nenhum quadrinho com esse título</h2>
+    </div>
+  )
   const renderCarousel = () => (
     <CustomCarousel isMobile={isTablet}>
       {comicsFiltered.map((comic, index) => (
@@ -77,7 +87,7 @@ const Home = () => {
           onChange={(event) => searchComics(event.target.value)}
           placeholder='X-Men: Days of Future Past (Trade Paperback)'
         />
-        {isLoading ? renderLoading() : renderCarousel()}
+        {isLoading ? renderLoading() : renderContent()}
       </Section>
     </>
   )
