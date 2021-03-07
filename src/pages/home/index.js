@@ -9,6 +9,7 @@ import Section from '../../components/section'
 import Banner from '../../components/banner'
 import CustomCarousel from '../../components/customCarousel'
 import CarouselItem from '../../components/carouselItem'
+import SearchBar from '../../components/searchBar'
 
 // TODO: Remove this import
 import { useSelector } from 'react-redux'
@@ -20,6 +21,7 @@ const Home = () => {
   const { isTablet } = getBreakpoints(width)
 
   const [comicsResponse, setComicsResponse] = useState([])
+  const [comicsFiltered, setComicsFilter] = useState([])
   const [isLoading, setLoading] = useState(false)
   // const [characters, setCharacters] = useState([])
 
@@ -30,6 +32,7 @@ const Home = () => {
     setLoading(true)
     API.getComics().then(({ data }) => {
       setComicsResponse(data.data.results)
+      setComicsFilter(comicsResponse)
       setLoading(false)
     })
   }, [])
@@ -52,7 +55,7 @@ const Home = () => {
 
   const renderCarousel = () => (
     <CustomCarousel isMobile={isTablet}>
-      {comicsResponse.map((comic, index) => (
+      {comicsFiltered.map((comic, index) => (
         <CarouselItem
           key={index}
           item={comic}
@@ -65,6 +68,15 @@ const Home = () => {
     <div style={{ width: 300, height: 500 }}>loading</div>
   )
 
+  const searchComics = (text) => {
+    const textTypedInLowerCase = text.toLowerCase()
+    const filteredComicsArray = comicsResponse.filter((comic) => {
+      const titleInLowerCase = comic.title.toLowerCase()
+      return titleInLowerCase.includes(textTypedInLowerCase)
+    })
+    setComicsFilter(filteredComicsArray)
+  }
+
   return (
     <>
       <Banner
@@ -73,9 +85,13 @@ const Home = () => {
       />
       <Section
         id='comics'
-        customStyles={{ backgroundColor: '#F5F5F5' }}
+        customStyles={{ backgroundColor: '#EEEEEE' }}
         title='Procure o seu quadrinho preferido!'
       >
+        <SearchBar
+          onChange={(event) => searchComics(event.target.value)}
+          placeholder='X-Men: Days of Future Past (Trade Paperback)'
+        />
         {isLoading ? renderLoading() : renderCarousel()}
       </Section>
       <section style={{ height: 500 }}>
