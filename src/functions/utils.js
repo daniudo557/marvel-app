@@ -31,3 +31,17 @@ export const getBreakpoints = (width) => {
 
 export const getComicImage = (comic) =>
   comic?.thumbnail?.path + '.' + comic?.thumbnail?.extension
+
+export const getComicOnList = (comicsArray, comicId) => (
+  comicsArray
+    .find(comic => comic.comicDetails.id === comicId)
+)
+
+export const getNumberOnList = (comicsArray, comicId) => {
+  const comicObject = getComicOnList(comicsArray, comicId)
+  const isComicOnList = !!comicObject
+
+  if (!isComicOnList) return 0
+
+  return comicObject.numberOfComics
+}

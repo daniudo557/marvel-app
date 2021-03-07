@@ -1,11 +1,18 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { removeFromList, addToList } from '../../redux/actions/comics'
+import { selectors } from '../../redux/selectors/comics'
 
-import { useWindowDimensions, getBreakpoints, getComicImage } from '../../functions/utils'
+import {
+  useWindowDimensions,
+  getBreakpoints,
+  getComicImage,
+  getNumberOnList
+} from '../../functions/utils'
+
 import Button from '../button'
 import './styles.scss'
 
@@ -14,6 +21,7 @@ const CarouselItem = ({ item }) => {
   const { isTablet, isMobile } = getBreakpoints(width)
 
   const dispatch = useDispatch()
+  const comics = useSelector(selectors.getComics)
 
   const removeComicFromList = (comic) => dispatch(removeFromList(comic))
   const addComicToList = (comic) => dispatch(addToList(comic))
@@ -45,6 +53,11 @@ const CarouselItem = ({ item }) => {
             alt={item.title}
             src={getComicImage(item)}
           />
+          <h2
+            className='numberOfComicIndicator'
+          >
+            {getNumberOnList(comics, item.id)}
+          </h2>
         </Link>
         <div className='itemFooter'>
           <div className='comicTitle'>

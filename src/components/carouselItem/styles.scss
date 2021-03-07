@@ -63,6 +63,9 @@
       #seeMore{
         opacity: 1;
       }
+      .numberOfComicIndicator {
+        opacity: 0;
+      }
     } 
   }
 }
@@ -77,9 +80,27 @@
   font-family: BetonSans, sans-serif;
   font-size: 32px;
   text-decoration: none;
-  align-self: center;
   text-transform: uppercase;
 }
+
+.numberOfComicIndicator {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  background-color: #F0141E;
+  color: white;
+  text-align: center;
+  
+  transition: all 0.5s;
+  z-index: 100;
+  align-self: flex-start;
+  position: fixed;
+
+  font-family: BetonSans, sans-serif;
+  font-size: 32px;
+  text-decoration: none;
+}
+
 
 .itemFooter {
   display: flex;
