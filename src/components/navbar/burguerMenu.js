@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons'
+
 import './styles.scss'
 
 const BurguerMenu = ({ items }) => {
@@ -33,7 +36,17 @@ const BurguerMenu = ({ items }) => {
         className='burgerButton'
         onClick={() => setSidebarOpen(!sidebarOpen)}
       >
-        {sidebarOpen ? 'X' : '|||'}
+        {sidebarOpen
+          ? <FontAwesomeIcon
+              style={{ alignSelf: 'center', fontSize: 26 }}
+              color='#F0141E'
+              icon={faTimes}
+            />
+          : <FontAwesomeIcon
+              style={{ alignSelf: 'center', fontSize: 26 }}
+              color='#F0141E'
+              icon={faBars}
+            />}
       </div>
     </div>
   )

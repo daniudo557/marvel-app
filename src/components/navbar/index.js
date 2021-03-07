@@ -9,7 +9,7 @@ import './styles.scss'
 
 const Navbar = () => {
   const { width } = useWindowDimensions()
-  const { isMobile } = getBreakpoints(width)
+  const { isMobile, isTablet } = getBreakpoints(width)
 
   const menuItems = [
     { text: 'Quadrinhos', path: paths.home },
@@ -55,7 +55,7 @@ const Navbar = () => {
     </div>
   )
 
-  return isMobile ? renderMobileNavBar() : renderDesktopNavBar()
+  return isMobile || isTablet ? renderMobileNavBar() : renderDesktopNavBar()
 }
 
 export default Navbar
