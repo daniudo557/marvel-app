@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import API from '../../services/api'
 
+import ReactLoading from 'react-loading'
+
 import Button from '../../components/button'
 import Card from '../../components/card'
 import './styles.scss'
@@ -13,6 +15,8 @@ const Form = ({ comics }) => {
   })
   const [isEmailEmpty, setEmailEmpty] = useState(false)
   const [isNameEmpty, setNameEmpty] = useState(false)
+  const [isLoading, setLoading] = useState(false)
+  const [isError, setError] = useState(false)
 
   const parseComics = (comicsArray) => (
     comicsArray.map((comic) => ({
@@ -27,10 +31,20 @@ const Form = ({ comics }) => {
     setFields(fields)
   }
 
+  const sendEmail = () => {
+    setLoading(true)
+    API.sendEmail({ ...fields, comics: parseComics(comics) })
+      .then(() => setLoading(false))
+      .catch(() => {
+        setError(true)
+        setLoading(false)
+      })
+  }
+
   const handleFormSubmit = () => {
     if (isEmptyForm()) return
 
-    API.sendEmail({ ...fields, comics: parseComics(comics) })
+    sendEmail()
   }
 
   const isEmptyForm = () => {
@@ -43,8 +57,15 @@ const Form = ({ comics }) => {
     return (isNameEmpty || isEmailEmpty)
   }
 
-  return (
-    <Card backgroundColor='#F2F2F2'>
+  const renderSendEmailErrorLabel = () => (
+    <h5 className='errorLabel'>
+      * Não foi possível enviar o email. Tente novamente mais tarde
+    </h5>
+  )
+
+  const renderContent = () => (
+    <>
+      {!isError && renderSendEmailErrorLabel()}
       <label>E-mail</label>
       {isEmailEmpty && <label className='errorLabel'>* Preencha o campo "E-mail"</label>}
       <input
@@ -70,6 +91,23 @@ const Form = ({ comics }) => {
         text='Enviar email'
         onClick={() => handleFormSubmit()}
       />
+    </>
+  )
+
+  const renderLoading = () => (
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <ReactLoading
+        type='spinningBubbles'
+        color='#F0141E'
+        height='20%'
+        width='20%'
+      />
+    </div>
+  )
+
+  return (
+    <Card backgroundColor='#F2F2F2'>
+      {isLoading ? renderLoading() : renderContent()}
     </Card>
   )
 }
