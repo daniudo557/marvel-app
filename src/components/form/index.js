@@ -55,13 +55,27 @@ const Form = ({ comics }) => {
   }
 
   const isEmptyForm = () => {
-    if (fields.name === '') setNameEmpty(true)
-    else setNameEmpty(false)
+    // This had to be done because state take some time to update
+    let isEmailFieldEmpty = false
+    let isNameFieldEmpty = false
 
-    if (fields.email === '') setEmailEmpty(true)
-    else setEmailEmpty(false)
+    if (fields.name === '') {
+      setNameEmpty(true)
+      isNameFieldEmpty = true
+    } else {
+      setNameEmpty(false)
+      isNameFieldEmpty = false
+    }
 
-    return (isNameEmpty || isEmailEmpty)
+    if (fields.email === '') {
+      setEmailEmpty(true)
+      isEmailFieldEmpty = true
+    } else {
+      setEmailEmpty(false)
+      isEmailFieldEmpty = false
+    }
+
+    return (isNameFieldEmpty || isEmailFieldEmpty)
   }
 
   const renderResponseLabel = () => {
@@ -108,7 +122,7 @@ const Form = ({ comics }) => {
       />
       <Button
         text='Enviar email'
-        onClick={() => handleFormSubmit()}
+        onClick={handleFormSubmit}
       />
     </>
   )
