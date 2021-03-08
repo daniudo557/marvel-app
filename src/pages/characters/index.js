@@ -9,6 +9,7 @@ import Banner from '../../components/banner'
 import CustomCarousel from '../../components/customCarousel'
 import CarouselItem from '../../components/carouselItem'
 import SearchBar from '../../components/searchBar'
+import { images } from '../../themes'
 
 const Characters = () => {
   const { width } = useWindowDimensions()
@@ -76,7 +77,9 @@ const Characters = () => {
   return (
     <>
       <Banner
-        text='Bem vindo(a) ao Marvel-App! Explore o mundo dos quadrinhos'
+        text='Conheça nossos personagens!'
+        image={images.characters}
+        backgroundImage={images.battle}
       />
       <Section
         customStyles={{ backgroundColor: '#EEEEEE' }}
