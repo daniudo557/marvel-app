@@ -7,7 +7,7 @@ It was created using:
 - [SCSS](https://github.com/sass/sass)
 - [Axios](https://github.com/axios/axios)
 - [Redux](https://github.com/reduxjs/redux) - to save user comic list
-- [React-multi-carousel](https://github.com/YIZHUANG/react-multi-carousel) - to display comics in carousel on the home page
+- [React-multi-carousel](https://github.com/YIZHUANG/react-multi-carousel) - to display comics in carousel on the home page and characters on `/characters` page
 - [React-fontawesome](https://github.com/FortAwesome/react-fontawesome) - to use customs icons in navbar
 - [React-loading](https://github.com/fakiolinho/react-loading) - to display beautiful spinner while loading
 - [React-router](https://github.com/ReactTraining/react-router) - to manage application routes
