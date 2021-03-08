@@ -18,7 +18,7 @@ API.getCreatorsByComicId = (comicId) =>
   api.get(`/comics/${comicId}/creators?${secret}`)
 API.sendEmail = data => emailApi.post('/send', data)
 
-API.getCharacters = () => api.get(`/characters?${secret}`)
+API.getCharacters = () => api.get(`/characters?limit=100&${secret}`)
 API.getCharacters2 = () => api.get(`/comics/1308/characters?${secret}`)
 
 export default API

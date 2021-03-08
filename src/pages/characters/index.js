@@ -87,7 +87,7 @@ const Characters = () => {
       >
         <SearchBar
           onChange={(event) => searchCharacters(event.target.value)}
-          placeholder='Spider-man'
+          placeholder='Ant-man'
         />
         {isLoading ? renderLoading() : renderContent()}
       </Section>
