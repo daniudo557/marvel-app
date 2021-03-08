@@ -54,7 +54,7 @@ const CarouselItem = ({ item, isLoading, isComics }) => {
       <Link
         className={`carouselImageContainer ${!isComics &&
           'carouselImageContainer-characters'}`}
-        to={`comics/${item.id}`}
+        to={isComics ? `comics/${item.id}` : `characters/${item.id}`}
       >
         {isComics && getNumberOfComics()}
         <h2 id='seeMore'>VER MAIS</h2>

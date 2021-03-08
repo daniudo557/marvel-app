@@ -67,8 +67,8 @@ const Characters = () => {
 
   const searchCharacters = (text) => {
     const textTypedInLowerCase = text.toLowerCase()
-    const filteredCharactersArray = charactersResponse.filter((comic) => {
-      const titleInLowerCase = comic.name.toLowerCase()
+    const filteredCharactersArray = charactersResponse.filter((character) => {
+      const titleInLowerCase = character.name.toLowerCase()
       return titleInLowerCase.includes(textTypedInLowerCase)
     })
     setCharactersFilter(filteredCharactersArray)
